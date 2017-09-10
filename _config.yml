@@ -15,6 +15,6 @@ gems:
 
 #Others
 markdown: kramdown
-
 #theme: jekyll-theme-cayman
 
+google_analytics: UA-106142228-1
