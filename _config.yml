@@ -1,13 +1,13 @@
 # Setup
-title:        GeekyMind
-tagline:      Break things - Have fun - Never give up
+title:        Mohamed Ibrahim
+tagline:      Android developer | Self-taught Programmer | English Learner
 baseurl:      ""
 paginate:     1
 
 # About/contact
 author:
   name:       Mohamed Ibrahim
-  url:        mibrahim.dev@gmail.com
+  url:        https://twitter.com/MohamedISoliman
 
 # Gems
 gems:
