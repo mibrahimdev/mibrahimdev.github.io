@@ -1,20 +1,88 @@
-# Setup
-title:        Mohamed Ibrahim
-tagline:      Android developer | Self-taught Programmer | English Learner
-baseurl:      ""
-paginate:     1
+#
+# في هذا الملف ستجد كل المتغيرات التي تتحكم في إعدادات المدونة، شخصّها على حسب متطلباتك
+#
 
-# About/contact
-author:
-  name:       Mohamed Ibrahim
-  url:        https://twitter.com/MohamedISoliman
+# اسم المدونة الذي سيظهر في الأعلى
+name: محمد إبراهيم
 
-# Gems
-gems:
-  - jekyll-paginate
+# وصف قصير للمدونة والذي سيظهر تحت اسمها وكجزء من عنوان المدونة في محركات البحث
+description: "وأنّ ليس للإنسان إلا ما سعى .."
 
-#Others
-markdown: kramdown
-#theme: jekyll-theme-cayman
+# رابط صورة المدونة
+# لإستخدام صورة هويتك في GitHub ضع https://github.com/<اسم_المستخدم>.png في المتغير، مثلا لهويتي الشخصية أستخدم:
+avatar: https://github.com/MohamedISoliman.png
+# ولإخفاء الصورة نهائيًا احذف الرابط من المتغير
+#avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
 
+
+#
+# المتغيرات الآتية هي خيارية، عدل عليها إذا أردت تخصيص أكثر للمدونة
+#
+
+# لكل هوية تضعها هنا ستظهر أيقونة في أسفل المدونة
+footer-links:
+  dribbble:
+  email:
+  facebook: mi.s016
+  flickr:
+  github: MohamedISoliman
+  instagram:
+  linkedin: mohamedisoliman
+  pinterest:
+  rss: # ضع أي قيمة هنا لتظهر أيقونة RSS
+  twitter: mohamedisoliman
+#  stackoverflow: # هويتك في stackoverflow مثلا: "users/50476/bart-kiers"
+# youtube: # إما channel/<عنوان_قناتك_الطويل> أو user/<اسم-مستخدمك>
+#  googleplus: # رقم التعريف عندما تزور هويتك (كل ما يتبع plus.google.com/)
+
+
+# ضع الاسم Disqus القصير الخاص بك (الاسم القصير وليس اسم المستخدم) لتفعيل الردود على المدونة
+# ستجد الاسم القصير الخاص بك في إعدادات حسابك في Disqus
+disqus: disqus_uyW8ifaIis 
+
+# إذا أردت تفعيل إحصاءات الزوار في Google Analytics أدخل المعرف الخاص بك (مثلاً UA-2110908-2)
 google_analytics: UA-106142228-1
+
+# عنوان موقعك مثلاً http://barryclark.github.io
+# يستخدم هذا المتغير في الـRSS والـSitemap.xml
+url: http://mohamedisoliman.github.io/
+
+# إذا كانت المدونة خاصة للصفحات المشاريع في GitHub (http://yourusername.github.io/repository-name مثلاً) عدل هذا المتغير ليطابق اسم المشروع
+baseurl: ""
+
+
+#
+# هذه المتغيرات خاصة بـJekyll ولا أنصح بتعديلها، لذلك لا حاجة لشرحها
+#
+
+permalink: /:title/
+
+# The release of Jekyll Now that you're using
+version: v1.2.0
+
+# Jekyll 3 now only supports Kramdown for Markdown
+kramdown:
+  # Use GitHub flavored markdown, including triple backtick fenced code blocks
+  input: GFM
+  # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    # Use existing pygments syntax highlighting css
+    css_class: "highlight"
+
+# Set the Sass partials directory, as we're using @imports
+sass:
+  style: :expanded # You might prefer to minify using :compressed
+
+# Use the following plug-ins
+plugins:
+  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
+
+# Exclude these files from your production _site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME
