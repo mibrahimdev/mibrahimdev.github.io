@@ -45,7 +45,6 @@
           </div>
 
           <nav>
-            <a href="/">المدونة</a>
             <a href="/about">من أنا</a>
           </nav>
         </header>
@@ -56,15 +55,23 @@
       <div class="posts">
   
     <article class="post">
-      <h1><a href="/Hello-World/">مرحبًا</a></h1>
+      <h1><a href="/custom-fonts-android/">كيفية استخدام الخطوط المُخصصة في أندرويد - custom fonts in Android Support lib 26</a></h1>
 
       <div class="entry">
-        <p>مرحبا</p>
+        <p>إلى وقت قريب لم تكن توجد طريقة رسمية لإضافة الخطوط المخصصة لتطبيقات أندرويد، فقط بضعة حلول قام بابتكارها المجتمع لحل تلك المشلكة، أهما:</p>
+<h3 id="العناصر-المُعدلة---custom-views">العناصر المُعدلة - custom views</h3>
+<p>في هذه الطريقة، كل ما عليك هو أن تقوم بكتابة عنصر خاص لاستبدال خطوط النظام، فإذا كنت تريد تغيير عنصر الزر مثلًا، فستقوم ببناء عنصر جديد يرث من العنصر Button، وتقوم بكتابة الكود المسؤول عن إضافة خطوطك الخاصة. الكود التالي يوضح كيفية تحديد خط العنصر، وهذا بعد إضافة الخطوط التي تريد في المسار  <strong>assets</strong>. أو في المسار <strong>assets/fonts</strong> لتنظيم الأمر قليلًا.</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">Typeface</span> <span class="n">tf</span> <span class="o">=</span> <span class="n">Typeface</span><span class="o">.</span><span class="na">createFromAsset</span><span class="o">(</span><span class="n">getContext</span><span class="o">().</span><span class="na">getAssets</span><span class="o">(),</span> <span class="s">"assets/"</span> <span class="o">+</span> <span class="n">fontName</span><span class="o">;</span>
+<span class="n">setTypeface</span><span class="o">(</span><span class="n">tf</span><span class="o">);</span>
+</code></pre>
+</div>
+<h3 id="مكتبة-calligraphy">مكتبة Calligraphy</h3>
+<p>توجد عدة مكتبات مشهورة للقيام بهذا الأمر، فمشكلة الطريقة السابقة، أن أي عنصر View تريد استبدال خطوطه، سيتوجب عليك بناء عنصر جديد يرث منه خصائصه، ثم تخصيص الخطوط التي تريد إضافتها. لذا فالمكتبة تعتبر حل سريع وعملي للقيام بالأمر، أشهر مكتبة هي <a href="https://github.com/chrisjenx/Calligraphy">Calligraphy</a>.</p>
 
 
       </div>
 
-      <a href="/Hello-World/" class="read-more">اكمل القراءة</a>
+      <a href="/custom-fonts-android/" class="read-more">اكمل القراءة</a>
     </article>
   
 </div>
