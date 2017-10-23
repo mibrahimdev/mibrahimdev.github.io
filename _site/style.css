@@ -391,7 +391,7 @@ footer {
 }
 
 .highlight pre, pre, .highlight .hll {
-  background-color: #49483E;
+  background-color: #ffffff;
   border: 1px solid #ccc;
   padding: 6px 10px;
   border-radius: 10px;
@@ -414,7 +414,7 @@ code.highlighter-rouge {
 
 pre {
   border: solid 1px #ddd;
-  background: #fff;
+  background: #ffffff;
   line-height: 20px;
   margin-bottom: 30px;
   white-space: pre;
