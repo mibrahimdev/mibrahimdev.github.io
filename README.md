@@ -1,1 +1,3 @@
-ستجد معلومات المشروع وطريقة العمل هنا <https://a3ammar.github.io/arabic-jekyll/>
+## Android
+- [ ] كيفية استخدام الخطوط المُخصصة في أندرويد - custom fonts in Android Support lib 26.
+
