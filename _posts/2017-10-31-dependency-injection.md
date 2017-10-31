@@ -234,8 +234,8 @@ public class Injector {
         person.drive();
         person.learnSomeStuff();
 
-        person.drive();
-        person.learnSomeStuff();
+        anotherPerson.drive();
+        anotherPerson.learnSomeStuff();
 ```
 
 في المثال قمت بعمل inject لكلاس Person في الكلاس الرئيسية للتطبيق، وقمت كذلك بعمل inject لكائنات السيارات التي ستحتاجها الأشخاص، وعملية الحقن نفسها يمكن أن تتم في أي مكان تريد Dependencirs يحتاجها كائن آخر.
