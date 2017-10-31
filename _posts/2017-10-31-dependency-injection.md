@@ -182,7 +182,7 @@ public PersonImpl implements Person {
         System.out.println("driving " + car.getName());
     }
 
-    public void learningSomeStuff(){
+    public void learnSomeStuff(){
         System.out.println("learning some stuff");
     }
 }
@@ -225,8 +225,8 @@ public class Injector {
 ```java
   //in main application 
         Injector injector = Injector.getInstance();
-        Injector.Person person = injector.getPerson();
-        Injector.Person anotherPerson = injector.getPerson();
+        Person person = injector.getPerson();
+        Person anotherPerson = injector.getPerson();
 
         Car fiat = injector.getFiat();
         Car lambo = injector.getLambo();
