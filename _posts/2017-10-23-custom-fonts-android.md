@@ -97,11 +97,23 @@ app:fontFamily="@font/app_font"
 **استخدامها عبر  ملف style**  
 يمكننا كذلك استخدامها عبر ملف style لتعريف كالآتي
 
-```
+```java
 <style name="TextAppearance">
         <item name="fontFamily">@font/app_font</item>
 </style>
 ```
+أخيرًا قد تريد تغيير كل الخطوط بالتطبيق لهذه الخطوط مرة واحدة، بدون التعديل على عنصر واجهة معين .. يمكنك ذلك عبر تحديد fontFamily في ثيم التطبيق عبر ملف style كالتالي:  
+```java
+<!-- Base application theme. -->
+  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="android:fontFamily">@font/font_family_roboto</item>
+  </style>
+```
+
 
 **يمكنك إيجاد النموذج عبر [github](https://github.com/MohamedISoliman/Custom-fonts-supportLib-26) ، ومراجعة الخطوات السابقة عبر التنقل بين الـ [commits](https://github.com/MohamedISoliman/Custom-fonts-supportLib-26/commits/master)**
 

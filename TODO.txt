@@ -3,3 +3,4 @@ Activity lifecycle .. die in another day
 Hello Dependency Injection, Hello Dagger 2
 How MVP pattern got me a Junior android Job
 the pursuit of clean code
+Generics in Java .. Retrofit Adappters as example
