@@ -1,0 +1,232 @@
+I"�[<p>معظمنا في البداية لا يأبه بعدد الكائنات التي يقوم ببنائها ليبدأ ببرمجة النظام .. وما أسهل كلمة new على المحرر ليقوم بتكملة الكود تلقائيًا وبناء Object جديد. لكن نظرة دقيقة على الكود تدرك أنك قد قمت ببناء الكثير من الكائنات الضرورية وغير الضرورية والتي سيدفع ثمنها الحاسوب المشغل من مصادره، خاصة لو كان محدود المصادر كالهاتف الذكي.</p>
+
+<p>والمشكلة الأكبر هو مقدار الجهد الذي ستتطلبه أنت عند إضافة ميزة جديدة أو فحص مشكلة، فالكلاسات المختلفة أصبحت “معشّقة” Tightly coupled وتأبى أن يفارق إحداها الأخرى .. وكيف لا وبينها العشرات من الكائنات التي تحتاج الرعاية والتربية.</p>
+
+<p>ناهيك عن صعوبة اختبار هذه الكلاسات، ففي كل مرة تحتاج مثلًا أن تقوم بكتابة Unit test للكلاس A تجد أنها تعتمد على كلاسات B , C ,D ,E و F. فاختبار كل كلاس بمعزلٍ عن الأخرى أصبح صعب .. مما يزيد من صعوبة التطوير والحصول على نظام مستقر.</p>
+
+<p><strong>هذه ربما هي أهم المشاكل الخاصة عند عمل الكائنات داخل الكلاسات التي تحتاجها، لكن لنفهم ذلك بكتابة بعض الكود ..</strong></p>
+
+<p>في البداية لدينا الكلاس Car</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">speed</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Car</span><span class="o">(</span><span class="kt">int</span> <span class="n">speed</span><span class="o">,</span> <span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">speed</span> <span class="o">=</span> <span class="n">speed</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+     <span class="o">}</span>
+     <span class="c1">//setters &amp; getters</span>
+     <span class="o">...</span>
+     
+   <span class="o">}</span>
+</code></pre></div></div>
+<p>ولدينا الكلاس Person</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="nc">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Car</span><span class="o">(</span><span class="mi">100</span><span class="o">,</span> <span class="s">"BatMobile"</span><span class="o">);</span>
+
+    <span class="kd">public</span> <span class="nf">Person</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">drive</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"driving "</span> <span class="o">+</span> <span class="n">car</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">learningSomeStuff</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"learning some stuff"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>المشكلة الآن أن الكلاس Person هي المسؤولة عن صناعة السيارة، ويظهر هذا عند استخدام Person في التطبيق.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainApplication</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">();</span>
+        <span class="n">person</span><span class="o">.</span><span class="na">drive</span><span class="o">();</span>
+        <span class="n">person</span><span class="o">.</span><span class="na">learnSomeStuff</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>مهمة بناء كائن السيارة الآن يقع على عاتق الكلاس Person وهو ما يعد صعب حتى في الحياة العادية، لست عليك أن تصنع السيارة بنفسك لتقودها، ربما تشتريها أو تؤجرها من طرف آخر .. لكن صناعتها هي مهمة صعبة على Person لديه مهام أخرى يركز عليها.</p>
+
+<p><strong>لنختبر الوضع الحالي للكود  ..</strong></p>
+
+<ul>
+  <li>هل يمكنك استخدام الكلاس Person بوضعها الحالي لقيادة سيارة لامبورجيني مثلا؟ بالطبع لا.</li>
+  <li>هل يمكنك اختبار الكلاس Person بمعزلٍ  عن الكلاس Car؟ لا أيضًا.</li>
+</ul>
+
+<p>من إجابة الأسئلة السابقة ومراجعة الكود، تدرك مشكلة بناء كائنات كلاس بداخل الكلاس المستخدمة.</p>
+
+<h3 id="نسخة-أفضل-قليلًا-constructor-and-setter-injection">نسخة أفضل قليلًا Constructor and Setter injection</h3>
+
+<p>الكلاس Person تعتمد على كلاس Car، لذا فـ Car بالنسبة لـ Person تعتبر Dependency هذه العلاقة موجودة بغض النظر عن مكان بناء الكائن Car.</p>
+
+<p>النسخة الأفضل للكود السابق هي أن نُحيل عمل الكائن Car للنظام أو الـ Client بمعنى أن طالما العميل سيقوم بعمل Person فليقم أيضًا بعمل سيارة حسب الطلب. الكود التالي يوضح الكيفية ..</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="nc">Car</span> <span class="n">car</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="nc">Car</span> <span class="n">car</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">car</span> <span class="o">=</span> <span class="n">car</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">drive</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"driving "</span> <span class="o">+</span> <span class="n">car</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+<p>فوائد النسخة السابقة تظهر  عند كتابة كود التطبيق</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Car</span> <span class="n">fiat</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Car</span><span class="o">(</span><span class="mi">60</span><span class="o">,</span> <span class="s">"128"</span><span class="o">);</span>
+        <span class="nc">Car</span> <span class="n">lambo</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Car</span><span class="o">(</span><span class="mi">150</span><span class="o">,</span> <span class="s">"lambo"</span><span class="o">);</span>
+        
+        <span class="nc">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="n">batMobile</span><span class="o">);</span>
+        <span class="n">person</span><span class="o">.</span><span class="na">drive</span><span class="o">();</span>
+        <span class="n">person</span><span class="o">.</span><span class="na">learnSomeStuff</span><span class="o">();</span>
+        
+        <span class="nc">Person</span> <span class="n">anotherPerson</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="n">lambo</span><span class="o">);</span> <span class="c1">//أرزاق</span>
+        <span class="n">anotherPerson</span><span class="o">.</span><span class="na">drive</span><span class="o">();</span>
+        <span class="n">anotherPerson</span><span class="o">.</span><span class="na">learnSomeStuff</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>في هذه النسخة من الكود Person لا يعلم شيئًا عن صناعة السيارات، ولا يجب له أن يعلم، ولو سألت الأسئلة السابقة فستجد أنه:</p>
+
+<ul>
+  <li>يمكنك الآن أن تجعل Person يقود أي سيارة تريد ..</li>
+  <li>يمكنك أن تختبر Person بمعزلٍ عن الكلاس Car بأن تقوم بمحاكاة السيارة حسب حالات الاختبارات.</li>
+</ul>
+
+<p>يمكنك الوصول للنتيجة السابقة عبر Setter injection أيضًا بأن تمرر كائن السيارة لميثود Set بدلاً من الـ Constructor</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="nc">Car</span> <span class="n">car</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="nf">Person</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setCar</span><span class="o">(</span><span class="nc">Car</span> <span class="n">car</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">car</span> <span class="o">=</span> <span class="n">car</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h3 id="ما-هو-الـ-dependency-injection">ما هو الـ Dependency Injection</h3>
+<blockquote>
+  <p>In software engineering, dependency injection is a technique whereby one object supplies the dependencies of another object. A dependency is an object that can be used (a service). An injection is the passing of a dependency to a dependent object (a client) that would use it. The service is made part of the client’s state.[1] Passing the service to the client, rather than allowing a client to build or find the service, is the fundamental requirement of the pattern.
+ <a href="https://en.wikipedia.org/wiki/Dependency_injection">Wikipedia</a></p>
+</blockquote>
+
+<p>هو أسلوب حيث يقوم كائن معين بإمداد كائن آخر بكل ما يحتاجه من Dependencies، و Dependency هو كائن يقوم باستخدامه كائن آخر ليقوم بمهمة ما .. ويتم بناء الـ Dependency كجزء من حالة العميل أو النظام، شرط هذا الأسلوب هو أن يتم تمرير الـ Dependency بدلًا من بنائها داخل الكائن المُستخدِم.</p>
+
+<p><img src="/images/posts/2017-10-31-dependency-injection/Dagger-feature.png" alt="dependency injection" title="custom fonts Android support library" height="450" /></p>
+
+<p>بكلمات بسيطة جدًا .. هو عمل كلاس خاصة ببناء وإعداد كل الـ Dependencies الذي ستحتاجها أثناء بناء النظام .. في كل مرة تحتاج كائن لعمل كائن آخر .. ستطلبه من هذه الكلاس.</p>
+
+<p>فائدة هذا الأسلوب أن مهمة بناء هذه الكائنات أصبح مُدارًا في مكان واحد (Seperate of concerns) وهو ما سيسهل عملية الاختبار ومحاكاة هذه الكائنات، وحتى تغييرها إذا تطلب الأمر.</p>
+
+<p><strong>سنقوم الآن بتطبيق هذا الأسلوب على ما سبق  ..</strong></p>
+
+<p>في البداية نحتاج لتغيير أنواع الكلاسات وجعلها أكثر ديناميكية عبر استخدام interfaces</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Car</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="nf">getSpeed</span><span class="o">();</span>
+    <span class="nc">String</span> <span class="nf">getName</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Person</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">drive</span><span class="o">();</span>
+    <span class="kt">void</span> <span class="nf">learnSomeStuff</span><span class="o">();</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+<p>الآن كل الكلاسات القديمة تعتمد على هذه العقود</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">CarImpl</span> <span class="kd">implements</span> <span class="nc">Car</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">speed</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">CarImpl</span><span class="o">(</span><span class="kt">int</span> <span class="n">speed</span><span class="o">,</span> <span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">speed</span> <span class="o">=</span> <span class="n">speed</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+     <span class="o">}</span>
+     <span class="c1">//setters &amp; getters</span>
+<span class="o">}</span>
+
+<span class="c1">//**********************</span>
+
+<span class="kd">public</span> <span class="nc">PersonImpl</span> <span class="kd">implements</span> <span class="nc">Person</span> <span class="o">{</span>
+
+   <span class="kd">private</span> <span class="nc">Car</span> <span class="n">car</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">PersonImpl</span><span class="o">(</span><span class="nc">Car</span> <span class="n">car</span><span class="o">)</span> <span class="o">{</span>
+       <span class="k">this</span><span class="o">.</span><span class="na">car</span> <span class="o">=</span> <span class="n">car</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">drive</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"driving "</span> <span class="o">+</span> <span class="n">car</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">learnSomeStuff</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"learning some stuff"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+<p>والآن مع عمل كلاس الـ Injector</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * singleton to manage dependencies
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Injector</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">Injector</span> <span class="n">instance</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="nf">Injector</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Injector</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Injector</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">Car</span> <span class="nf">getFiat</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">CarImpl</span><span class="o">(</span><span class="mi">60</span><span class="o">,</span> <span class="s">"128"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">Car</span> <span class="nf">getLambo</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">CarImpl</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">"Lambo"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">Person</span> <span class="nf">getPerson</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">PersonImpl</span><span class="o">((</span><span class="nc">CarImpl</span><span class="o">)</span> <span class="n">getFiat</span><span class="o">());</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>وأخيرًا عند الاستخدام الفعلي وبرمجة النظام ..</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//in main application </span>
+        <span class="nc">Injector</span> <span class="n">injector</span> <span class="o">=</span> <span class="nc">Injector</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+        <span class="nc">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="n">injector</span><span class="o">.</span><span class="na">getPerson</span><span class="o">();</span>
+        <span class="nc">Person</span> <span class="n">anotherPerson</span> <span class="o">=</span> <span class="n">injector</span><span class="o">.</span><span class="na">getPerson</span><span class="o">();</span>
+
+        <span class="nc">Car</span> <span class="n">fiat</span> <span class="o">=</span> <span class="n">injector</span><span class="o">.</span><span class="na">getFiat</span><span class="o">();</span>
+        <span class="nc">Car</span> <span class="n">lambo</span> <span class="o">=</span> <span class="n">injector</span><span class="o">.</span><span class="na">getLambo</span><span class="o">();</span>
+        
+        <span class="n">person</span><span class="o">.</span><span class="na">drive</span><span class="o">();</span>
+        <span class="n">person</span><span class="o">.</span><span class="na">learnSomeStuff</span><span class="o">();</span>
+
+        <span class="n">anotherPerson</span><span class="o">.</span><span class="na">drive</span><span class="o">();</span>
+        <span class="n">anotherPerson</span><span class="o">.</span><span class="na">learnSomeStuff</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>في المثال قمت بعمل inject لكلاس Person في الكلاس الرئيسية للتطبيق، وقمت كذلك بعمل inject لكائنات السيارات التي ستحتاجها الأشخاص، وعملية الحقن نفسها يمكن أن تتم في أي مكان تريد Dependencirs يحتاجها كائن آخر.</p>
+
+<p>مشكلة هذا الأسلوب أنه يحتاج الكثير من كتابة الكود المتكرر لكن مع تقنيات مثل Annotation proccessors تستطيع أن تستخدم framework جاهزة تقوم بإنشاء هذا الكود بالنيابة عنك .. وكل ما عليك هو القيام فقط ببعض الإعدادات .. أشهرها في عالم أندرويد وجافا هي Dagger وهو موضوع <strong>مقالة قادمة..</strong></p>
+
+:ET
