@@ -115,7 +115,7 @@ app:fontFamily="@font/app_font"
 ```
 
 
-**يمكنك إيجاد النموذج عبر [github](https://github.com/MohamedISoliman/Custom-fonts-supportLib-26) ، ومراجعة الخطوات السابقة عبر التنقل بين الـ [commits](https://github.com/MohamedISoliman/Custom-fonts-supportLib-26/commits/master)**
+**يمكنك إيجاد النموذج عبر [github](https://github.com/mibrahimdev/Custom-fonts-supportLib-26) ، ومراجعة الخطوات السابقة عبر التنقل بين الـ [commits](https://github.com/mibrahimdev/Custom-fonts-supportLib-26/commits/master)**
 
 مصادر:  
 

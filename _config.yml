@@ -23,14 +23,14 @@ avatar: https://github.com/mibrahimdev.png
 footer-links:
   dribbble:
   email:
-  facebook: imohamedibrahim
+  facebook: mibrahimdev
   flickr:
-  github: MohamedISoliman
+  github: mibrahimdev
   instagram:
-  linkedin: mohamedisoliman
+  linkedin: mibrahimdev
   pinterest:
   rss: # ضع أي قيمة هنا لتظهر أيقونة RSS
-  twitter: mohamedisoliman
+  twitter: mibrahimdev
   stackoverflow: /users/4252667/mohamed-ibrahim
 # youtube: # إما channel/<عنوان_قناتك_الطويل> أو user/<اسم-مستخدمك>
 #  googleplus: # رقم التعريف عندما تزور هويتك (كل ما يتبع plus.google.com/)
@@ -45,7 +45,7 @@ google_analytics: UA-106142228-1
 
 # عنوان موقعك مثلاً http://barryclark.github.io
 # يستخدم هذا المتغير في الـRSS والـSitemap.xml
-url: http://mohamedisoliman.github.io/
+url: http://mibrahimdev.github.io/
 
 # إذا كانت المدونة خاصة للصفحات المشاريع في GitHub (http://yourusername.github.io/repository-name مثلاً) عدل هذا المتغير ليطابق اسم المشروع
 baseurl: ""
