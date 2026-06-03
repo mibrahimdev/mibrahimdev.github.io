@@ -1,9 +1,10 @@
 <section class="cv-section" id="mentorship" aria-labelledby="mentorship-title">
   <h2 class="cv-section-title" id="mentorship-title">Mentorship</h2>
   <div class="cv-mentorship">
-    <p class="cv-mentorship-lead">
-      {{ site.data.mentorship.role }} @ {{ site.data.mentorship.platform }}
-    </p>
+    {% if site.data.adplist.reviews_embed %}
+    <div class="cv-adplist-embed cv-adplist-reviews">{{ site.data.adplist.reviews_embed }}</div>
+    {% else %}
+    {% comment %} Fallback if no live embed is configured yet. {% endcomment %}
     <ul class="cv-stats">
       {% for stat in site.data.mentorship.stats %}
       <li class="cv-stat">
@@ -12,12 +13,11 @@
       </li>
       {% endfor %}
     </ul>
-    {% if site.data.mentorship.top_mentor_awards %}
-    <p class="cv-mentorship-awards">
-      Top-10 Mentor:
-      {% for award in site.data.mentorship.top_mentor_awards %}{{ award }}{% unless forloop.last %} &middot; {% endunless %}{% endfor %}
+    {% endif %}
+    {% if site.data.adplist.profile_url %}
+    <p class="cv-mentorship-link">
+      <a href="{{ site.data.adplist.profile_url }}" rel="me noopener" target="_blank">View full profile on ADPList &rarr;</a>
     </p>
     {% endif %}
-    <p class="cv-mentorship-note">{{ site.data.mentorship.note }}</p>
   </div>
 </section>

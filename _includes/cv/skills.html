@@ -1,15 +1,8 @@
 <section class="cv-section" id="skills" aria-labelledby="skills-title">
   <h2 class="cv-section-title" id="skills-title">Skills</h2>
-  <div class="cv-skills">
-    {% for group in site.data.skills %}
-    <div class="cv-skill-group">
-      <h3 class="cv-skill-group-title">{{ group.group }}</h3>
-      <ul class="cv-skill-chips">
-        {% for item in group.items %}
-        <li class="cv-skill-chip">{{ item }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endfor %}
-  </div>
+  <ul class="cv-skill-chips">
+    {% for group in site.data.skills %}{% for item in group.items %}
+    <li class="cv-skill-chip">{{ item }}</li>
+    {% endfor %}{% endfor %}
+  </ul>
 </section>

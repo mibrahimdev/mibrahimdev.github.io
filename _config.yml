@@ -4,7 +4,7 @@
 name: Mohamed Ibrahim
 
 # Short description shown under the name and as part of the page title in search results
-description: "Senior Android Engineer · Kotlin, Jetpack Compose, Multiplatform"
+description: "Senior Android Engineer · Kotlin, Jetpack Compose, Kotlin Multiplatform"
 
 # Avatar shown in the masthead
 avatar: https://github.com/mibrahimdev.png
@@ -12,19 +12,14 @@ avatar: https://github.com/mibrahimdev.png
 # Social card used by jekyll-seo-tag for link previews (1200x630)
 image: /images/social-card.png
 
-# Footer social icons
+# Social icons (modern inline-SVG set — see _includes/svg-icons.html).
+# Networks render in the hero (top); the RSS feed renders in the footer (bottom).
 footer-links:
-  dribbble:
-  email:
-  facebook: mibrahimdev
-  flickr:
   github: mibrahimdev
-  instagram:
   linkedin: mibrahimdev
-  pinterest:
-  rss: # any value here shows the RSS icon
-  twitter: mibrahimdev
   stackoverflow: /users/4252667/mohamed-ibrahim
+  youtube: "@mibrahimdev" # quoted — a leading @ is reserved in YAML
+  rss: true # any value here shows the RSS icon
 
 # Site URL, used in RSS and sitemap.xml.
 # Stays on the github.io host until the custom domain is live (see plan §8).

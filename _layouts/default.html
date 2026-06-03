@@ -36,14 +36,18 @@
           <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
           {% endif %}
 
+          {% comment %} Home and Blog use a slim masthead (avatar + nav only); the
+             hero / page content owns the identity. Posts keep the name/tagline as branding. {% endcomment %}
+          {% unless page.class == "cv-home" or page.class == "articles" %}
           <div class="site-info">
             <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
             <p class="site-description">{{ site.description }}</p>
           </div>
+          {% endunless %}
 
           <nav>
             <a href="{{ site.baseurl }}/">Home</a>
-            <a href="{{ site.baseurl }}/articles/">Articles</a>
+            <a href="{{ site.baseurl }}/blog/">Blog</a>
             <button id="theme-toggle" aria-label="Toggle theme">
               <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0-5a1 1 0 011 1v2a1 1 0 11-2 0V3a1 1 0 011-1zm0 17a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zM4.22 4.22a1 1 0 011.42 0l1.4 1.4a1 1 0 11-1.41 1.42l-1.41-1.4a1 1 0 010-1.42zm12.73 12.73a1 1 0 011.42 0l1.4 1.4a1 1 0 01-1.41 1.42l-1.41-1.4a1 1 0 010-1.42zM2 12a1 1 0 011-1h2a1 1 0 110 2H3a1 1 0 01-1-1zm17 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zM4.22 19.78a1 1 0 010-1.42l1.4-1.4a1 1 0 011.42 1.41l-1.4 1.41a1 1 0 01-1.42 0zM16.95 7.05a1 1 0 010-1.42l1.4-1.4a1 1 0 011.42 1.41l-1.4 1.41a1 1 0 01-1.42 0z"/></svg>
             </button>
@@ -59,11 +63,12 @@
     <div class="wrapper-footer">
       <div class="container">
         <footer class="footer">
-          {% include svg-icons.html %}
+          {% include svg-icons.html only="rss" %}
         </footer>
       </div>
     </div>
 
     <script src="{{ '/javascripts/theme-toggle.js' | prepend: site.baseurl }}" defer></script>
+    {% if page.class == "cv-home" %}<script src="{{ '/javascripts/cv.js' | prepend: site.baseurl }}" defer></script>{% endif %}
   </body>
 </html>

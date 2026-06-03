@@ -1,6 +1,11 @@
 # Work experience — single source of truth for _includes/cv/experience.html
 # Ordered most-recent first. TryCarriage/Delivery Hero is modelled as TWO
 # separate tenures per the resume (Dec 2022–Jun 2023 and Sep 2019–Jan 2022).
+#
+# Optional `logo:` — path to an official logo SVG/PNG under /images/logos/.
+# When present it renders in the timeline badge; otherwise a monogram (the
+# company's first initial) is shown. Drop a file at /images/logos/<name>.svg
+# and add `logo: /images/logos/<name>.svg` to that entry to use a real logo.
 
 - company: Dyson
   role: Senior Android Engineer
@@ -8,6 +13,8 @@
   end: Mar 2026
   location: Bristol, UK
   context: Smart home technology and IoT devices.
+  logo: /images/logos/dyson.png
+  logo_fill: true # opaque app-tile — fills the badge edge-to-edge
   bullets:
     - Contributed to the development of multiple features across various product categories within the MyDyson app (5M+ downloads).
     - Optimised and enhanced IoT connectivity logic (MQTT, BLE, Matter), improving device communication stability and reliability.
@@ -20,6 +27,7 @@
   end: Jun 2023
   location: Qatar (Remote)
   context: Food delivery platform operating in Qatar.
+  logo: /images/logos/delivery-hero.png
   bullets:
     - Delivered the new search UI feature while maintaining the same backend API contract.
     - Introduced a dynamic features mechanism to enable faster build delivery and A/B tests.
@@ -30,6 +38,7 @@
   end: Nov 2022
   location: Remote
   context: Transportation and mobility.
+  logo: /images/logos/swvl.png
   bullets:
     - Refactored the base MVIViewModel to migrate from Channels and Rx code to Kotlin Flow with minimal code changes.
     - Contributed to a B2B-focused team, enhancing the app and preparing it for sale to external entities.
@@ -41,6 +50,7 @@
   end: Jan 2022
   location: Qatar (Remote)
   context: Food delivery platform operating in Qatar.
+  logo: /images/logos/delivery-hero.png
   bullets:
     - Built and maintained core features of the food delivery app over a multi-year tenure.
     - Drove architecture and code-quality improvements across the Android codebase.
@@ -51,6 +61,7 @@
   end: Jun 2019
   location: Egypt
   context: Telecom company operating worldwide.
+  logo: /images/logos/vodafone.svg
   bullets:
     - Delivered the domain-layer code for the Postpaid screen with scalability to add complex UI components while calling more than seven APIs.
     - Optimised the Clean Architecture base classes, including UseCase, error handling, and RxJava streams.
