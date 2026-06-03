@@ -38,7 +38,7 @@
   end: Nov 2022
   location: Remote
   context: Transportation and mobility.
-  logo: /images/logos/swvl.svg
+  logo: /images/logos/swvl.png
   bullets:
     - Refactored the base MVIViewModel to migrate from Channels and Rx code to Kotlin Flow with minimal code changes.
     - Contributed to a B2B-focused team, enhancing the app and preparing it for sale to external entities.
