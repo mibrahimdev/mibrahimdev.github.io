@@ -12,7 +12,7 @@ class: articles
       <p class="date">{{ post.date | date: "%B %-d, %Y" }}</p>
 
       <div class="entry">
-        {{ post.excerpt }}
+        {% if post.description %}<p>{{ post.description }}</p>{% else %}{{ post.excerpt }}{% endif %}
       </div>
 
       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read more</a>
