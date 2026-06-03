@@ -1,13 +1,13 @@
 .highlight, code { direction: ltr; }
 
-// ── Code blocks: Sublime Text "Monokai" ──────────────────────────────
-// Always dark, regardless of the site's light/dark theme (standard for
-// code). Monokai palette: bg #272822, text #f8f8f2.
+// ── Code blocks ──────────────────────────────────────────────────────
+// Palette follows the site theme via --syn-* tokens (defined in
+// _theme.scss): "One Light" in light mode, "Monokai" in dark mode.
 .highlight,
 .highlight pre,
 pre {
-  background: #272822;
-  color: #f8f8f2;
+  background: var(--syn-bg);
+  color: var(--syn-text);
 }
 
 .highlight pre,
@@ -15,7 +15,7 @@ pre {
   font-family: $code-font-family;
   font-size: 13.5px;
   line-height: 1.6;
-  border: 1px solid #3e3d32;
+  border: 1px solid var(--syn-border);
   padding: 14px 16px;
   border-radius: 10px;
   margin-bottom: 28px;
@@ -25,10 +25,10 @@ pre {
   word-wrap: inherit;
 }
 
-.highlight .hll { background-color: #49483e; }
-.gist pre { color: #f8f8f2; }
+.highlight .hll { background-color: var(--syn-hll); }
+.gist pre { color: var(--syn-text); }
 
-// Inline code — stays themed (not Monokai) and scales with surrounding text.
+// Inline code — themed surface, scales with surrounding text.
 code {
   font-family: $code-font-family;
   font-weight: 400;
@@ -42,44 +42,44 @@ code {
   }
 }
 
-// ── Monokai token colours ───────────────────────────────────────────
+// ── Token colours (mapped to theme roles) ────────────────────────────
 .highlight .c,  .highlight .ch, .highlight .cm, .highlight .cp,
-.highlight .c1, .highlight .cs, .highlight .cpf { color: #75715e; font-style: italic; } /* Comment */
-.highlight .err { color: #960050; background-color: #1e0010; } /* Error */
+.highlight .c1, .highlight .cs, .highlight .cpf { color: var(--syn-comment); font-style: italic; } /* Comment */
+.highlight .err { color: var(--syn-err-fg); background-color: var(--syn-err-bg); } /* Error */
 .highlight .k, .highlight .kc, .highlight .kd,
-.highlight .kp, .highlight .kr, .highlight .kt { color: #66d9ef; } /* Keyword / Type */
-.highlight .kn { color: #f92672; } /* Keyword.Namespace (import/package) */
-.highlight .o, .highlight .ow { color: #f92672; } /* Operator */
-.highlight .p { color: #f8f8f2; } /* Punctuation */
-.highlight .gd { color: #f92672; } /* Generic.Deleted */
+.highlight .kp, .highlight .kr, .highlight .kt { color: var(--syn-keyword); } /* Keyword / Type */
+.highlight .kn { color: var(--syn-operator); } /* Keyword.Namespace (import/package) */
+.highlight .o, .highlight .ow { color: var(--syn-operator); } /* Operator */
+.highlight .p { color: var(--syn-text); } /* Punctuation */
+.highlight .gd { color: var(--syn-operator); } /* Generic.Deleted */
 .highlight .ge { font-style: italic; }
-.highlight .gi { color: #a6e22e; } /* Generic.Inserted */
+.highlight .gi { color: var(--syn-name); } /* Generic.Inserted */
 .highlight .gs { font-weight: bold; }
-.highlight .gu { color: #75715e; } /* Generic.Subheading */
-.highlight .gh { color: #75715e; } /* Generic.Heading */
-.highlight .gp { color: #75715e; } /* Generic.Prompt */
-.highlight .go { color: #f8f8f2; } /* Generic.Output */
-.highlight .l, .highlight .ld { color: #ae81ff; } /* Literal */
+.highlight .gu { color: var(--syn-comment); } /* Generic.Subheading */
+.highlight .gh { color: var(--syn-comment); } /* Generic.Heading */
+.highlight .gp { color: var(--syn-comment); } /* Generic.Prompt */
+.highlight .go { color: var(--syn-text); } /* Generic.Output */
+.highlight .l, .highlight .ld { color: var(--syn-number); } /* Literal */
 .highlight .m,  .highlight .mf, .highlight .mh, .highlight .mi,
-.highlight .mo, .highlight .il, .highlight .mb { color: #ae81ff; } /* Number */
+.highlight .mo, .highlight .il, .highlight .mb { color: var(--syn-number); } /* Number */
 .highlight .s,  .highlight .sb, .highlight .sc, .highlight .sd,
 .highlight .s2, .highlight .se, .highlight .sh, .highlight .si,
 .highlight .sx, .highlight .sr, .highlight .s1, .highlight .ss,
-.highlight .dl { color: #e6db74; } /* String */
-.highlight .na { color: #a6e22e; } /* Name.Attribute */
-.highlight .nb { color: #f8f8f2; } /* Name.Builtin */
-.highlight .nc { color: #a6e22e; } /* Name.Class */
-.highlight .no { color: #66d9ef; } /* Name.Constant */
-.highlight .nd { color: #a6e22e; } /* Name.Decorator */
-.highlight .ni { color: #f8f8f2; } /* Name.Entity */
-.highlight .ne { color: #a6e22e; } /* Name.Exception */
-.highlight .nf, .highlight .fm { color: #a6e22e; } /* Name.Function */
-.highlight .nl { color: #f8f8f2; } /* Name.Label */
-.highlight .nn { color: #f8f8f2; } /* Name.Namespace */
-.highlight .nx { color: #a6e22e; } /* Name.Other */
-.highlight .py { color: #f8f8f2; } /* Name.Property */
-.highlight .nt { color: #f92672; } /* Name.Tag */
+.highlight .dl { color: var(--syn-string); } /* String */
+.highlight .na { color: var(--syn-name); } /* Name.Attribute */
+.highlight .nb { color: var(--syn-text); } /* Name.Builtin */
+.highlight .nc { color: var(--syn-name); } /* Name.Class */
+.highlight .no { color: var(--syn-keyword); } /* Name.Constant */
+.highlight .nd { color: var(--syn-name); } /* Name.Decorator */
+.highlight .ni { color: var(--syn-text); } /* Name.Entity */
+.highlight .ne { color: var(--syn-name); } /* Name.Exception */
+.highlight .nf, .highlight .fm { color: var(--syn-name); } /* Name.Function */
+.highlight .nl { color: var(--syn-text); } /* Name.Label */
+.highlight .nn { color: var(--syn-text); } /* Name.Namespace */
+.highlight .nx { color: var(--syn-name); } /* Name.Other */
+.highlight .py { color: var(--syn-text); } /* Name.Property */
+.highlight .nt { color: var(--syn-operator); } /* Name.Tag */
 .highlight .nv, .highlight .vc, .highlight .vg,
-.highlight .vi { color: #f8f8f2; } /* Variable */
-.highlight .w  { color: #f8f8f2; } /* Whitespace */
-.highlight .bp { color: #f8f8f2; } /* Name.Builtin.Pseudo */
+.highlight .vi { color: var(--syn-text); } /* Variable */
+.highlight .w  { color: var(--syn-text); } /* Whitespace */
+.highlight .bp { color: var(--syn-text); } /* Name.Builtin.Pseudo */
