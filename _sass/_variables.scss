@@ -1,25 +1,13 @@
 //
 // VARIABLES
 //
+// Colors live in _theme.scss as CSS custom properties (var(--token)).
+// This file holds only font stacks and layout mixins.
+//
 
-// Colors
-$blue: #4183C4;
-
-// Grays
-$black: #000;
-$darkerGray: #222;
-$darkGray: #333;
-$gray: #666;
-$lightGray: #eee;
-$white: #fff;
-$red: #dd2b55;
-
-$base-font-family: Helvetica, Arial, sans-serif;
-$heading-font-family: Noto Kufi Arabic, $base-font-family;
-$body-font-family: Noto Naskh Arabic, $base-font-family;
-
-$monospace-font-family: Bitstream Vera Sans Mono, Courier, monospace;
-$code-font-family: Kawkab Mono, $monospace-font-family;
+$base-font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+$heading-font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+$code-font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
 // Mobile breakpoints
 @mixin mobile {

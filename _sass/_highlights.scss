@@ -1,33 +1,32 @@
 .highlight, code { direction: ltr; }
 
 .highlight pre, pre, .highlight .hll {
-  background-color: #ffffff;
-  border: 1px solid #ccc;
+  background-color: var(--color-code-bg);
+  border: 1px solid var(--color-border);
   padding: 6px 10px;
   border-radius: 10px;
 
 }
 
 .gist pre {
-  color: #515151;
+  color: var(--color-code-text);
 }
 
 code {
-  font-family: $monospace-font-family;
+  font-family: $code-font-family;
   font-weight: 400;
   font-size: 12px;
-  unicode-bidi: embed;
 
   &.highlighter-rouge {
     // specific to inline
-    color: $red;
+    color: var(--color-code-inline);
     padding: 0 2px;
   }
 }
 
 pre {
-  border: solid 1px #ddd;
-  background: #ffffff;
+  border: solid 1px var(--color-border);
+  background: var(--color-code-bg);
   line-height: 20px;
   margin-bottom: 30px;
   white-space: pre;
@@ -37,7 +36,7 @@ pre {
 }
 
 
-.highlight  { background: #ffffff; }
+.highlight  { background: var(--color-code-bg); }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
 .highlight .k { font-weight: bold } /* Keyword */

@@ -1,0 +1,61 @@
+//
+// THEME TOKENS (CSS custom properties)
+//
+// Light is the no-preference fallback. OS dark wins only when the user
+// has made no manual choice (`:root:not([data-theme])`). A manual choice
+// sets `data-theme` on <html> and overrides everything.
+//
+
+:root,
+[data-theme="light"] {
+  --color-bg: #fff;
+  --color-surface: #f8f8f8;
+  --color-surface-alt: #f0f0f0;
+  --color-text: #333;
+  --color-text-muted: #666;
+  --color-heading: #222;
+  --color-border: #eee;
+  --color-link: #4183C4;
+  --color-link-hover: #2a5d8f;
+  --color-accent: #4183C4;
+  --color-code-bg: #fff;
+  --color-code-text: #515151;
+  --color-code-inline: #dd2b55;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  --color-bg: #0f1115;
+  --color-surface: #1a1d23;
+  --color-surface-alt: #22262e;
+  --color-text: #e6e6e6;
+  --color-text-muted: #9aa0aa;
+  --color-heading: #fff;
+  --color-border: #2a2e36;
+  --color-link: #5aa0f0;
+  --color-link-hover: #82b8f5;
+  --color-accent: #5aa0f0;
+  --color-code-bg: #1a1d23;
+  --color-code-text: #c9d1d9;
+  --color-code-inline: #ff6b9d;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #0f1115;
+    --color-surface: #1a1d23;
+    --color-surface-alt: #22262e;
+    --color-text: #e6e6e6;
+    --color-text-muted: #9aa0aa;
+    --color-heading: #fff;
+    --color-border: #2a2e36;
+    --color-link: #5aa0f0;
+    --color-link-hover: #82b8f5;
+    --color-accent: #5aa0f0;
+    --color-code-bg: #1a1d23;
+    --color-code-text: #c9d1d9;
+    --color-code-inline: #ff6b9d;
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.5);
+  }
+}

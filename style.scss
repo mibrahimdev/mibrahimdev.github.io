@@ -5,6 +5,7 @@
 // IMPORTS
 //
 
+@import "theme";
 @import "reset";
 @import "variables";
 @import "fonts";
@@ -15,7 +16,6 @@
 /**************/
 
 html {
-  direction: rtl;
   font-size: 100%;
   height: 100%;
 }
@@ -24,10 +24,10 @@ body {
   display: flex;
   min-height: 100%;
   flex-direction: column;
-  background: $white;
+  background: var(--color-bg);
   font: 19px/1.4 $base-font-family;
   line-height: 1.6;
-  color: $darkGray;
+  color: var(--color-text);
 }
 
 .container {
@@ -38,7 +38,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: $darkerGray;
+  color: var(--color-heading);
   font-weight: bold;
 
   line-height: 1.7;
@@ -67,7 +67,7 @@ h3 {
 
 h4 {
   font-size: 18px;
-  color: $gray;
+  color: var(--color-text-muted);
 }
 
 p {
@@ -75,17 +75,17 @@ p {
 }
 
 a {
-  color: $blue;
+  color: var(--color-link);
   text-decoration: none;
   cursor: pointer;
   &:hover, &:active {
-    color: $blue;
+    color: var(--color-link-hover);
   }
 }
 
 ul, ol {
   margin: 15px 0;
-  padding-right: 30px;
+  padding-left: 30px;
 }
 
 ul {
@@ -93,7 +93,7 @@ ul {
 }
 
 ol {
-  list-style-type: arabic-indic;
+  list-style-type: decimal;
 }
 
 ol ul, ul ol, ul ul, ol ol {
@@ -120,9 +120,9 @@ img {
 
 blockquote {
   margin: 1.8em .8em;
-  border-right: 2px solid $gray;
+  border-left: 2px solid var(--color-text-muted);
   padding: 0.1em 1em;
-  color: $gray;
+  color: var(--color-text-muted);
 }
 
 // Fixes images in popup boxes from Google Translate
@@ -156,7 +156,7 @@ blockquote {
 
 .masthead {
   padding: 20px 0;
-  border-bottom: 1px solid $lightGray;
+  border-bottom: 1px solid var(--color-border);
 
   @include mobile {
     text-align: center;
@@ -164,10 +164,10 @@ blockquote {
 }
 
 .site-avatar {
-  float: right;
+  float: left;
   width: 70px;
   height: 70px;
-  margin-left: 15px;
+  margin-right: 15px;
 
   @include mobile {
     float: none;
@@ -181,7 +181,7 @@ blockquote {
 }
 
 .site-info {
-  float: right;
+  float: left;
 
   @include mobile {
     float: none;
@@ -192,7 +192,7 @@ blockquote {
 
 .site-name {
   margin: 0;
-  color: $darkGray;
+  color: var(--color-heading);
   cursor: pointer;
   font-weight: normal;
   font-size: 28px;
@@ -200,7 +200,7 @@ blockquote {
 
 .site-description {
   margin: -5px 0 0 0;
-  color: $gray;
+  color: var(--color-text-muted);
   font-size: 16px;
 
   @include mobile {
@@ -209,7 +209,7 @@ blockquote {
 }
 
 nav {
-  float: left;
+  float: right;
   margin-top: 23px; // @TODO: Vertically middle align
   font-size: 18px;
 
@@ -221,15 +221,40 @@ nav {
   }
 
   a {
-    margin-right: 20px;
-    color: $darkGray;
+    margin-left: 20px;
+    color: var(--color-text);
     text-align: left;
     font-weight: normal;
 
     @include mobile {
       margin: 0 10px;
-      color: $blue;
+      color: var(--color-link);
     }
+  }
+}
+
+#theme-toggle {
+  margin-left: 20px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--color-text);
+  cursor: pointer;
+  vertical-align: middle;
+  line-height: 0;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+
+  &:hover {
+    color: var(--color-link);
+  }
+
+  @include mobile {
+    margin: 0 10px;
   }
 }
 
@@ -247,7 +272,7 @@ nav {
 
 .posts > .post {
   padding-bottom: 2em;
-  border-bottom: 1px solid $lightGray;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .posts > .post:last-child {
@@ -283,40 +308,19 @@ nav {
 .date {
   margin-top: 2em;
   text-align: left;
-  color: $gray;
+  color: var(--color-text-muted);
 }
 
 .wrapper-footer {
   margin-top: 50px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  background-color: $lightGray;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface);
 }
 
 footer {
   padding: 20px 0;
   text-align: center;
-}
-
-
-//
-// FOUT fonts
-//
-
-.naskh-font-loaded {
-  body { font-family: $body-font-family; }
-}
-
-.kufi-font-loaded {
-  h1, h2, h3, h4, h5, h6 { font-family: $heading-font-family; }
-  .site-name             { font-family: $heading-font-family; }
-  nav                    { font-family: $heading-font-family; }
-  .read-more             { font-family: $heading-font-family; }
-  .date                  { font-family: $heading-font-family; }
-}
-
-.kawkab-font-loaded {
-  code { font-family: $code-font-family; }
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
