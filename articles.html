@@ -11,9 +11,11 @@ class: articles
 
       <p class="date">{{ post.date | date: "%B %-d, %Y" }}</p>
 
+      {% unless post.series %}
       <div class="entry">
         {% if post.description %}<p>{{ post.description }}</p>{% else %}{{ post.excerpt }}{% endif %}
       </div>
+      {% endunless %}
 
       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read more</a>
     </article>
