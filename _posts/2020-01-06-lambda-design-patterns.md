@@ -37,7 +37,7 @@ if you’re writing this in IntelliJ or Android Studio, it show you a hint that 
 
 clicking the option and the new syntax will be change to this
 
-```
+```java
 Runnable runnable = () -> {
     //do something
 };
@@ -154,7 +154,7 @@ class CommandProcessor {
 
 And you could use it in both cases like this
 
-```
+```kotlin
 CommandProcessor()
     .addToQueue(OrderAddCommand(1L))
     .addToQueue(OrderAddCommand(2L))
@@ -252,7 +252,7 @@ fun totalValues(list: List<Int>, selector: (Int) -> Boolean): Int {
 
 now it’s just one function, when we use it will be just simple as that
 
-```
+```kotlin
 //sum of even numbers
 println(totalValues(listOf(1, 2, 3, 4)) { it % 2 == 0 }) 
 //sum of odd numbers

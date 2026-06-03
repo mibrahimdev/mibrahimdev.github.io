@@ -14,7 +14,7 @@ RxJava may be the most important library I learned to use, Rx in general is a di
 
 Kotlin has as set of extensions to facilitate working with collections. but it’s not considered as reactive.
 
-```
+```kotlin
 listOf("Madara", "Kakashi", "Naruto", "Jiraya", "Itachi")
     .map { it.length }
     .filter { it > 4 }
@@ -25,7 +25,7 @@ listOf("Madara", "Kakashi", "Naruto", "Jiraya", "Itachi")
 
 In this example if you dig deep in map function source code, you will find no magic, it is just a loop over the list, doing some transformation then give you a new list. filter do the same. this mechanism called an eager evaluation, where the function do its operation over the whole list and give you a new list. but what if we don’t need to create those intermediate lists, and we need to save some memory, then we could use [***Sequences***](https://kotlinlang.org/docs/reference/sequences.html).
 
-```
+```kotlin
 listOf("Madara", "Kakashi", "Naruto", "Jiraya", "Itachi")
     .asSequence()
     .map { it.length }
@@ -93,7 +93,7 @@ Terminal operators in Flow, are suspend functions which need a scope to operate 
 
 To make flow start emitting, you need to launch it as any suspend function, So the pattern to start your flow will be…
 
-```
+```kotlin
 //fire a coroutine
 someScope.launch {
   //fire flow with a terminal operator
@@ -103,7 +103,7 @@ someScope.launch {
 
 The curly braces remind me of callbacks, a nice thing to do is replace it with ***launchIn()***, but how we handle our emissions, for that you use ***onEach{…}***
 
-```
+```kotlin
 flowSampleData()
     .onEach {
      //handle emissions
@@ -137,7 +137,7 @@ private fun flowOfAnimeCharacters() = flow {
 
 and the consumer code ..
 
-```
+```kotlin
 runBlocking {
     flowOfAnimeCharacters()
         .map { stringToLength(it) }
@@ -150,7 +150,7 @@ runBlocking {
 
 if we run this code it will throw an exception, and as we said you have two options to handle errors, the regular try-catch and ***catch{…}***. here is the modified code in both cases.
 
-```
+```kotlin
 // using try-catch
 runBlocking {
     try {
@@ -170,7 +170,7 @@ runBlocking {
 
 Using catch{…}
 
-```
+```kotlin
 runBlocking {
     flowOfAnimeCharacters()
         .map { stringToLength(it) }
@@ -188,7 +188,7 @@ There’s something happens with second option, it’s important to order the ca
 
 If error break the stream and our intention to resume it with fullback or default data, we used to have ***onErrorResumeNext()*** or ***onErrorReturn()*** in Rxjava, in Flow we also use ***catch{…}*** but we call ***emit()***inside of it to produce backup emissions one by one, or even better we could introduce a whole new flow with ***emitAll()*** like we did, if our heroes didn’t make it to the battleground, we need “Minato” and “Hashirama”.
 
-```
+```kotlin
 runBlocking {
     flowOfAnimeCharacters()
         .catch {

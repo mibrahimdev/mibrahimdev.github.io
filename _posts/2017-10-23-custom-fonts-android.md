@@ -29,7 +29,7 @@ To put this into practice, I downloaded an existing login/sign-up screen templat
 - Now we'll create a font family, which defines a set of fonts and their styles so the system can recognize them. Right-click the `font` folder, choose New, and finally Font resource file.
 - Then add the following code...
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <font-family xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -88,7 +88,7 @@ If we run the app now, nothing should change — we're using the same fonts; onl
 **Using them through XML files**  
 We can use them via the **fontFamily** attribute.
 
-```
+```xml
 app:fontFamily="@font/app_font"
 ```
 So we'll replace the custom views in the XML files with system or Support Library widgets, apply the line above, and run the app again.

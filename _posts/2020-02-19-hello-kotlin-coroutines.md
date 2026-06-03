@@ -229,7 +229,7 @@ in Android the newer ViewModel has its own new scope, which you can use, so you 
 
 but if you want to do it yourself, in Activity for example, all you have to do is to implement Coroutine scope in your runner class and define the context.
 
-```
+```kotlin
 class WelcomingScreen : Activity, CoroutineScope by CoroutineScope(Dispatchers.Default) {
 }
 ```
