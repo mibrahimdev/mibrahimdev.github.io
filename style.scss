@@ -323,6 +323,399 @@ footer {
   text-align: center;
 }
 
+/*********************/
+/* CV HOMEPAGE       */
+/*********************/
+
+.cv-home {
+
+  // Generic section scaffold (summary, experience, skills, ...)
+  .cv-section {
+    padding: 2.5em 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .cv-section-title {
+    margin: 0 0 1.2em;
+    font-size: 22px;
+    color: var(--color-heading);
+    letter-spacing: 0.02em;
+
+    &::before {
+      content: "## ";
+      color: var(--color-accent);
+    }
+  }
+
+  //
+  // Hero — terminal / whoami aesthetic
+  //
+  .cv-hero {
+    padding: 1em 0 2em;
+  }
+
+  .cv-hero-terminal {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.6em 1.8em;
+    box-shadow: var(--shadow-card);
+
+    @include mobile {
+      padding: 1.2em 1.2em;
+    }
+  }
+
+  .cv-hero-prompt {
+    margin: 0 0 1em;
+    color: var(--color-text-muted);
+    font-size: 16px;
+  }
+
+  .cv-hero-prompt-sigil {
+    color: var(--color-accent);
+    margin-right: 0.4em;
+    font-weight: 700;
+  }
+
+  .cv-hero-name {
+    margin: 0;
+    font-size: 34px;
+    color: var(--color-heading);
+
+    @include mobile {
+      font-size: 27px;
+    }
+  }
+
+  .cv-hero-title {
+    margin: 0.2em 0 0;
+    color: var(--color-accent);
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .cv-hero-location {
+    margin: 0.1em 0 0;
+    color: var(--color-text-muted);
+    font-size: 15px;
+  }
+
+  .cv-hero-summary {
+    margin: 1em 0 0;
+    color: var(--color-text);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .cv-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.8em 1.4em;
+    margin-top: 1.6em;
+    padding-top: 1.4em;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .cv-hero-email,
+  .cv-hero-cv {
+    font-size: 15px;
+    color: var(--color-link);
+  }
+
+  .cv-hero-cv-note {
+    font-size: 14px;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  .cv-hero-social {
+    margin-left: auto;
+
+    @include mobile {
+      margin-left: 0;
+    }
+  }
+
+  //
+  // Summary
+  //
+  .cv-summary p {
+    margin: 0 0 1em;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--color-text);
+
+    &:last-child { margin-bottom: 0; }
+  }
+
+  //
+  // Experience timeline
+  //
+  .cv-exp-timeline {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .cv-exp-item {
+    position: relative;
+    padding: 0 0 2em 1.4em;
+    border-left: 2px solid var(--color-border);
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -7px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--color-accent);
+    }
+  }
+
+  .cv-exp-header {
+    margin-bottom: 0.6em;
+  }
+
+  .cv-exp-role {
+    margin: 0;
+    font-size: 18px;
+    color: var(--color-heading);
+  }
+
+  .cv-exp-company {
+    margin: 0.1em 0 0;
+    font-size: 16px;
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  .cv-exp-meta {
+    margin: 0.3em 0 0;
+    font-size: 14px;
+    color: var(--color-text-muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3em 1em;
+  }
+
+  .cv-exp-context {
+    margin: 0.4em 0 0;
+    font-size: 14px;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  .cv-exp-bullets {
+    margin: 0.6em 0 0;
+    padding-left: 1.2em;
+  }
+
+  .cv-exp-bullet {
+    margin: 0.3em 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+
+  //
+  // Skills — grouped chips
+  //
+  .cv-skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.4em;
+  }
+
+  .cv-skill-group-title {
+    margin: 0 0 0.6em;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+  }
+
+  .cv-skill-chips {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+  }
+
+  .cv-skill-chip {
+    padding: 0.3em 0.7em;
+    font-size: 14px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    color: var(--color-text);
+  }
+
+  //
+  // Mentorship — stat callout
+  //
+  .cv-mentorship-lead {
+    margin: 0 0 1.2em;
+    font-size: 16px;
+    color: var(--color-text);
+  }
+
+  .cv-stats {
+    margin: 0 0 1.2em;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1em;
+  }
+
+  .cv-stat {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1em;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+  }
+
+  .cv-stat-value {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-accent);
+    line-height: 1.2;
+  }
+
+  .cv-stat-label {
+    display: block;
+    margin-top: 0.3em;
+    font-size: 13px;
+    color: var(--color-text-muted);
+  }
+
+  .cv-mentorship-awards {
+    margin: 0 0 0.8em;
+    font-size: 14px;
+    color: var(--color-text-muted);
+  }
+
+  .cv-mentorship-note {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+
+  //
+  // Education
+  //
+  .cv-education {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .cv-edu-item {
+    padding: 0 0 1.2em;
+
+    &:last-child { padding-bottom: 0; }
+  }
+
+  .cv-edu-institution {
+    margin: 0;
+    font-size: 17px;
+    color: var(--color-heading);
+  }
+
+  .cv-edu-qualification {
+    margin: 0.2em 0 0;
+    font-size: 15px;
+    color: var(--color-text);
+  }
+
+  .cv-edu-year {
+    margin: 0.2em 0 0;
+    font-size: 14px;
+    color: var(--color-text-muted);
+  }
+
+  //
+  // Languages
+  //
+  .cv-languages {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+
+  .cv-language {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 0.8em 1.2em;
+    min-width: 140px;
+  }
+
+  .cv-language-name {
+    font-size: 16px;
+    color: var(--color-heading);
+    font-weight: 500;
+  }
+
+  .cv-language-level {
+    margin-top: 0.2em;
+    font-size: 13px;
+    color: var(--color-text-muted);
+  }
+}
+
+/*********************/
+/* ARTICLES          */
+/*********************/
+
+.articles {
+
+  .articles-title {
+    margin-top: 0;
+
+    &::before {
+      content: "## ";
+      color: var(--color-accent);
+    }
+  }
+
+  .post-title {
+    margin: 0 0 0.2em;
+    font-size: 22px;
+
+    a { color: var(--color-heading); }
+    a:hover { color: var(--color-link); }
+  }
+
+  .post .date {
+    margin-top: 0;
+    font-size: 14px;
+  }
+
+  .post .entry {
+    color: var(--color-text);
+  }
+}
+
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "highlights";

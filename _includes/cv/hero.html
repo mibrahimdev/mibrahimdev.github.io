@@ -1,0 +1,57 @@
+<!--
+  cv/hero.html — text-only terminal / `whoami` hero (mono aesthetic, no photo).
+  Class names used (for the styling agent to target):
+    .cv-hero               outer hero section wrapper
+    .cv-hero-terminal      terminal-window container
+    .cv-hero-prompt        the `$ whoami` command line
+    .cv-hero-prompt-sigil  the leading `$` glyph
+    .cv-hero-output        block holding the resolved identity
+    .cv-hero-name          "Mohamed Ibrahim"
+    .cv-hero-title         "Senior Android Engineer"
+    .cv-hero-location      "Bristol, UK"
+    .cv-hero-summary       one-line summary
+    .cv-hero-actions       row of action links/buttons
+    .cv-hero-email         mailto link
+    .cv-hero-cv            "Download CV (PDF)" anchor (PENDING phone-free PDF)
+    .cv-hero-cv-note       visible pending note for the CV download
+    .cv-hero-social        social icon row (reuses svg-icons.html)
+-->
+<section class="cv-hero" id="top">
+  <div class="cv-hero-terminal" role="banner">
+    <p class="cv-hero-prompt">
+      <span class="cv-hero-prompt-sigil" aria-hidden="true">$</span> whoami
+    </p>
+    <div class="cv-hero-output">
+      <h1 class="cv-hero-name">Mohamed Ibrahim</h1>
+      <p class="cv-hero-title">Senior Android Engineer</p>
+      <p class="cv-hero-location">Bristol, UK</p>
+      <p class="cv-hero-summary">
+        Senior Android Engineer with 9 years of experience across IoT, food delivery,
+        mobility, and telecom — strong in Kotlin, Jetpack Compose, and Coroutines,
+        with end-to-end ownership from architecture to release.
+      </p>
+    </div>
+
+    <div class="cv-hero-actions">
+      <a class="cv-hero-email" href="mailto:mibrahim.dev@gmail.com">mibrahim.dev@gmail.com</a>
+
+      <!--
+        Download CV (PDF) — PENDING a phone-free export.
+        The current Mohamed_Ibrahim_CV.pdf contains a phone number and is NOT
+        committed. Keep this link commented out until a phone-free PDF ships.
+      -->
+      <!--
+      <a class="cv-hero-cv" href="{{ '/Mohamed_Ibrahim_CV.pdf' | prepend: site.baseurl }}" data-status="pending-phone-free-pdf">
+        Download CV (PDF)
+      </a>
+      -->
+      <span class="cv-hero-cv-note" data-status="pending-phone-free-pdf">
+        CV download coming soon (phone-free PDF pending).
+      </span>
+
+      <span class="cv-hero-social">
+        {% include svg-icons.html %}
+      </span>
+    </div>
+  </div>
+</section>

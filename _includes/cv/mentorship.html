@@ -1,0 +1,23 @@
+<section class="cv-section" id="mentorship" aria-labelledby="mentorship-title">
+  <h2 class="cv-section-title" id="mentorship-title">Mentorship</h2>
+  <div class="cv-mentorship">
+    <p class="cv-mentorship-lead">
+      {{ site.data.mentorship.role }} @ {{ site.data.mentorship.platform }}
+    </p>
+    <ul class="cv-stats">
+      {% for stat in site.data.mentorship.stats %}
+      <li class="cv-stat">
+        <span class="cv-stat-value">{{ stat.value }}</span>
+        <span class="cv-stat-label">{{ stat.label }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    {% if site.data.mentorship.top_mentor_awards %}
+    <p class="cv-mentorship-awards">
+      Top-10 Mentor:
+      {% for award in site.data.mentorship.top_mentor_awards %}{{ award }}{% unless forloop.last %} &middot; {% endunless %}{% endfor %}
+    </p>
+    {% endif %}
+    <p class="cv-mentorship-note">{{ site.data.mentorship.note }}</p>
+  </div>
+</section>
