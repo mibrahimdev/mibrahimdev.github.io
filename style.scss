@@ -281,6 +281,14 @@ nav {
 }
 
 .post {
+  // Long-form reading: proportional font (Inter), larger size, looser leading.
+  // Code/pre inside keep JetBrains Mono via the highlight rules.
+  .entry {
+    font-family: $body-font-family;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
   .comments {
     margin-top: 10px;
   }
