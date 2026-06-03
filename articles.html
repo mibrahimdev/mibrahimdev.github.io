@@ -1,0 +1,23 @@
+---
+permalink: /articles/
+layout: default
+class: articles
+---
+
+<h1 class="articles-title">Articles</h1>
+
+<div class="posts">
+  {% for post in site.posts %}
+    <article class="post">
+      <h2 class="post-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+
+      <p class="date">{{ post.date | date: "%B %-d, %Y" }}</p>
+
+      <div class="entry">
+        {{ post.excerpt }}
+      </div>
+
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read more</a>
+    </article>
+  {% endfor %}
+</div>
