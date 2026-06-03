@@ -297,6 +297,70 @@ nav {
     }
   }
 
+  // Slide carousel (Kotlin Gems etc.) — CSS scroll-snap deck, JS-enhanced.
+  .slides {
+    position: relative;
+    margin: 1.4em 0 1.8em;
+
+    &:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+  }
+
+  .slides-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar { display: none; }
+  }
+
+  .slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: auto;
+    display: block;
+    scroll-snap-align: center;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .slides-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, opacity 0.2s ease;
+
+    &:hover { background: rgba(0, 0, 0, 0.78); }
+    &:disabled { opacity: 0.25; cursor: default; }
+  }
+
+  .slides-prev { left: 10px; }
+  .slides-next { right: 10px; }
+
+  .slides-count {
+    margin-top: 8px;
+    text-align: center;
+    font-family: $base-font-family;
+    font-size: 13px;
+    color: var(--color-text-muted);
+  }
+
   // Attribution banner for posts republished from elsewhere (e.g. Medium).
   .post-canonical {
     font-family: $base-font-family;

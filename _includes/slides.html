@@ -1,0 +1,18 @@
+{% comment %}
+  Self-contained slide carousel (no plugin). Params:
+    include.dir   — folder of slide images, e.g. /images/posts/<slug>
+    include.count — number of slides (files named 1.png .. N.png)
+    include.alt   — accessible label for the deck
+  Behaviour lives in javascripts/slides.js; styling in style.scss (.slides*).
+{% endcomment %}
+<div class="slides" data-slides role="group" aria-roledescription="carousel" aria-label="{{ include.alt | default: 'Slides' }}">
+  <div class="slides-track">
+    {% for i in (1..include.count) %}
+    <img class="slide" src="{{ include.dir | prepend: site.baseurl }}/{{ i }}.png"
+         alt="Slide {{ i }} of {{ include.count }}" loading="lazy" draggable="false">
+    {% endfor %}
+  </div>
+  <button class="slides-btn slides-prev" type="button" aria-label="Previous slide">&lsaquo;</button>
+  <button class="slides-btn slides-next" type="button" aria-label="Next slide">&rsaquo;</button>
+  <div class="slides-count" aria-hidden="true"><span data-cur>1</span> / {{ include.count }}</div>
+</div>
