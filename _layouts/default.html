@@ -36,14 +36,9 @@
           <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
           {% endif %}
 
-          {% comment %} Home and Blog use a slim masthead (avatar + nav only); the
-             hero / page content owns the identity. Posts keep the name/tagline as branding. {% endcomment %}
-          {% unless page.class == "cv-home" or page.class == "articles" %}
-          <div class="site-info">
-            <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-            <p class="site-description">{{ site.description }}</p>
-          </div>
-          {% endunless %}
+          {% comment %} Slim masthead on every page (avatar + nav only). The home
+             hero card is the single place the name/title appears, so the masthead
+             never repeats it — on the homepage, Blog, or individual posts. {% endcomment %}
 
           <nav>
             <a href="{{ site.baseurl }}/">Home</a>
