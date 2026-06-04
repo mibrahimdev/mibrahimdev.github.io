@@ -268,7 +268,3 @@ this lambda we wrote, could be found as **Predicate**interface in Rxjava or even
 - [Design Patterns in the Light of Lambda Expressions by Subramaniam](https://www.youtube.com/watch?v=e4MT_OguDKg&t=21s)
 - [Design patterns in Kotlin](https://github.com/dbacinski/Design-Patterns-In-Kotlin)
 - [Arrow: Kotlin functional programming lib](https://arrow-kt.io/)
-
-📝 Save this story in [Journal](https://usejournal.com/?utm_source=medium.com&utm_medium=noteworthy_blog&utm_campaign=tech&utm_content=guest_post_read_later_text).
-
-👩‍💻 Wake up every Sunday morning to the week’s most noteworthy stories in Tech waiting in your inbox. [Read the Noteworthy in Tech newsletter](https://usejournal.com/newsletter/noteworthy-in-tech/?utm_source=medium.com&utm_medium=noteworthy_blog&utm_campaign=tech&utm_content=guest_post_text).

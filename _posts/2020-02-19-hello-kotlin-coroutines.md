@@ -325,7 +325,3 @@ Is an interface which carry the information of the current state, so when it get
 - [Introduction to Coroutines.](https://www.youtube.com/watch?v=_hfBv0a09Jc)
 - [The Guide to kotlinx.coroutines by example](https://github.com/Kotlin/kotlinx.coroutines/blob/master/coroutines-guide.md).
 - [Coroutine Context and Scope.](https://medium.com/@elizarov/coroutine-context-and-scope-c8b255d59055)
-
----
-
-[Hello Kotlin Coroutines](https://medium.com/swlh/hello-kotlin-coroutines-4e40cb9a106c) was originally published in [The Startup](https://medium.com/swlh) on Medium, where people are continuing the conversation by highlighting and responding to this story.
