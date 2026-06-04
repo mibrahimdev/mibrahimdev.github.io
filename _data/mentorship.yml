@@ -1,0 +1,26 @@
+# Mentorship — single source of truth for _includes/cv/mentorship.html
+# AdPList mentoring track record, rendered as a stat callout.
+
+platform: ADPList
+role: Android Mentor
+
+stats:
+  - value: "50+"
+    label: Mentorship sessions
+  - value: "1,000+"
+    label: Minutes mentored
+  - value: "4×"
+    label: Top-10 Mentor
+  - value: "15"
+    label: Five-star reviews
+
+top_mentor_awards:
+  - Dec 2024
+  - Mar 2025
+  - Jun 2025
+  - Sep 2025
+
+note: >-
+  Guiding Android developers on architecture, career growth, CV reviews, and
+  interview preparation. Earned 4× Top-10 Mentor recognition with 15 five-star
+  reviews praising technical depth and communication.

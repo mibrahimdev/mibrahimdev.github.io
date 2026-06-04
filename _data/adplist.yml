@@ -1,0 +1,21 @@
+# ADPList live embeds — paste the snippets from your ADPList profile here.
+#
+# How to get them:
+#   1. Go to your ADPList profile (https://adplist.org/mentors/<your-handle>).
+#   2. Click "Add to website" on the Impact card and on the Reviews card.
+#   3. Copy each generated embed snippet and paste it below as a block scalar (|).
+#      The snippet MUST be indented two spaces under the `|` line.
+#
+# When a field is filled in, _includes/cv/mentorship.html renders the live
+# widget instead of the static stat cards — no more manual updating.
+# Leave a field blank to keep the static fallback for that block.
+
+profile_url: https://adplist.org/mentors/mohamed-ibrahim
+
+# Live "Impact" widget (sessions / minutes / ratings).
+impact_embed: |
+  <section style="height: 560px; box-shadow: rgba(142, 151, 158, 0.15) 0px 4px 19px 0px; border-radius: 16px; overflow: hidden; width: 100%; max-width: 650px;"><iframe src="https://adplist.org/widgets/impact?src=mohamed-ibrahim" title="Impact" width="100%" height="100%" loading="lazy" style="border: 0px;"></iframe></section>
+
+# Live "Reviews" widget (five-star testimonials).
+reviews_embed: |
+  <section style="padding: 16px; height: 496px; box-shadow: rgba(142, 151, 158, 0.15) 0px 4px 19px 0px; border-radius: 16px; overflow: hidden; width: 100%; max-width: 650px;"><iframe src="https://adplist.org/widgets/reviews?src=mohamed-ibrahim" title="All Reviews" width="100%" height="100%" loading="lazy" style="border: 0px;"></iframe></section>

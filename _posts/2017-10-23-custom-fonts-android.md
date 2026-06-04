@@ -1,35 +1,35 @@
 ---
 layout: post
-title: كيفية استخدام الخطوط المُخصصة في أندرويد - custom fonts in Android Support lib 26 
+title: Using Custom Fonts in Android (Support Library 26)
 ---
 
-إلى وقت قريب لم تكن توجد طريقة رسمية لإضافة الخطوط المخصصة لتطبيقات أندرويد، فقط بضعة حلول قام بابتكارها المجتمع لحل تلك المشلكة، أهما:
-### العناصر المُعدلة - custom views
-في هذه الطريقة، كل ما عليك هو أن تقوم بكتابة عنصر خاص لاستبدال خطوط النظام، فإذا كنت تريد تغيير عنصر الزر مثلًا، فستقوم ببناء عنصر جديد يرث من العنصر Button، وتقوم بكتابة الكود المسؤول عن إضافة خطوطك الخاصة. الكود التالي يوضح كيفية تحديد خط العنصر، وهذا بعد إضافة الخطوط التي تريد في المسار  **assets**. أو في المسار **assets/fonts** لتنظيم الأمر قليلًا.
+Until recently, there was no official way to add custom fonts to Android apps — just a handful of community-built solutions to work around the problem. The most notable ones are:
+### Custom Views
+With this approach, all you have to do is write a custom view to override the system fonts. If you want to change a button, for example, you build a new view that extends `Button` and write the code responsible for applying your own font. The snippet below shows how to set a view's typeface, after placing the fonts you want in the **assets** directory — or in **assets/fonts** to keep things a bit more organized.
 ```java
 Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "assets/" + fontName;
 setTypeface(tf);
 ```
-### مكتبة Calligraphy
-توجد عدة مكتبات مشهورة للقيام بهذا الأمر، فمشكلة الطريقة السابقة، أن أي عنصر View تريد استبدال خطوطه، سيتوجب عليك بناء عنصر جديد يرث منه خصائصه، ثم تخصيص الخطوط التي تريد إضافتها. لذا فالمكتبة تعتبر حل سريع وعملي للقيام بالأمر، أشهر مكتبة هي [Calligraphy](https://github.com/chrisjenx/Calligraphy).
+### The Calligraphy Library
+There are several popular libraries for doing this. The downside of the previous approach is that for every View whose font you want to replace, you have to build a new view that inherits its properties and then apply your custom font. A library is therefore a quicker, more practical solution. The best-known one is [Calligraphy](https://github.com/chrisjenx/Calligraphy).
 
-في مؤتمر Google IO الأخير أعلن فريق تطوير أندرويد عن العديد من المميزات الجديدة في مكتبة الدعم الإصدار 26، من أهمها إمكانية تخصيص الخطوط، وبما أن هذه الميزة تأتي مع مكتبة الدعم، فإن الإصدارات القديمة من أندرويد لن تجد مشكلة في إظهار هذه الخطوط.
+At the last Google I/O, the Android team announced many new features in Support Library 26, one of the most important being custom font support. Because this feature ships with the Support Library, older Android versions have no trouble rendering these fonts.
 
-### كيفية استخدام الخطوط المخصصة مع مكتبة الدعم Support library 26
+### Using Custom Fonts with Support Library 26
 
-لتطبيق الأمر عمليًا قمت بتحميل نموذج لشاشة تسجيل ودخول موجودة مسبقًا وتستخدم الطريقة القديمة في تخصيص الخطوط، [رابط عرض وتحميل النموذج](https://www.uplabs.com/posts/login-signup-ui-kit). بعد تعديل ملفات Gradle وتحديث إصدار مكتبة الدعم، ثم بناء التطبيق تظهر الصورة التالية موضحة الخطوط المستخدمة في النموذج Sample.
+To put this into practice, I downloaded an existing login/sign-up screen template that uses the old approach to font customization: [view and download the template here](https://www.uplabs.com/posts/login-signup-ui-kit). After editing the Gradle files and bumping the Support Library version, then building the app, you get the following screenshot showing the fonts used in the sample.
 
 ![custom fonts Android support library 1]({{ site.baseurl }}/images/posts/2017-10-23-custom-fonts-android/Screenshot_20171023-175232.png "custom fonts Android support library"){:height="450"} 
 
-**الآن سنتبع [خطوات](https://developer.android.com/guide/topics/ui/look-and-feel/fonts-in-xml.html#using-support-lib)  استخدام مكتبة الدعم ..**
+**Now let's follow the [steps](https://developer.android.com/guide/topics/ui/look-and-feel/fonts-in-xml.html#using-support-lib) for using the Support Library...**
 
 
-- بعد ضغط يمين الماوس على فولدر res ستظهر القائمة لنختار منها New ثم Android resource directory ومن ثم نختار نوع الفولدر font.
-- بعد إنشاء هذا الفولدر، سننقل ملفات الخطوط الموجودة في المسار assets/fonts لمسارها الجديد والمعتمد الآن res/font. إذا كنت تستخدم نسخة أندرويد ستوديو 3.0.0 التجريبية فيمكنك الضغط على ملف الخط لاستعراضه .. اشكرني لاحقًا.
-- والأن سنقوم بإنشاء font family  وهي تعريف مجموعة من الخطوط وطريقة العرض لكي يتعرف عليها النظام. نضغط على فولدر font ثم New وأخيرًا Font resource file.
-- ثم نضيف الكود التالي ..
+- Right-click the `res` folder; from the menu choose New, then Android resource directory, and select `font` as the directory type.
+- Once this folder is created, move the font files from `assets/fonts` to their new, now-official location, `res/font`. If you're on the Android Studio 3.0.0 preview, you can click a font file to preview it — thank me later.
+- Now we'll create a font family, which defines a set of fonts and their styles so the system can recognize them. Right-click the `font` folder, choose New, and finally Font resource file.
+- Then add the following code...
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <font-family xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -70,12 +70,12 @@ setTypeface(tf);
 ```
 
 
-**ملحوظة:** يجب إعادة كتابة السطور باستخدام attribute **app** لضمان دعم الإصدارات الأقدم من النظام.
+**Note:** The lines must be duplicated using the **app** attribute to ensure support for older system versions.
 
-الآن يمكننا استخدام هذه الخطوط برمجيًا أو عبر ملفات xml ..
+Now we can use these fonts programmatically or through XML files...
 
-**استخدامها برمجيًا**  
-لا تختلف طريقة استخدام الخطوط برمجيًا عن الطريقة القديمة، الفرق أنك تجدها عبر R.font ، وتحصل عليها عبر **ResourcesCompat**  وعلى سبيل التجربة سنقوم بتغيير تخصيص الخطوط في العناصر المعدلة في النموذج الذي بين أيدينا. تجدها في الفولدر customfonts.
+**Using them programmatically**  
+Using the fonts in code is no different from the old approach. The difference is that you find them under `R.font` and retrieve them via **ResourcesCompat**. As an experiment, we'll change the font on the custom views in our sample. You'll find them in the `customfonts` folder.
 
 ```java
 if (!isInEditMode()) {
@@ -83,26 +83,26 @@ if (!isInEditMode()) {
  	setTypeface(tf);
 }
 ```
-إذا قمنا بتشغيل التطبيق الآن، مفترض أن لا شيء سيتغير. لأننا نستخدم نفس الخطوط، المختلف فقط الطريقة.
+If we run the app now, nothing should change — we're using the same fonts; only the approach is different.
 
-**استخدامها عبر ملفات Xml**  
-يمكننا استخدامها عبر attribute **fontFamily**
+**Using them through XML files**  
+We can use them via the **fontFamily** attribute.
 
-```
+```xml
 app:fontFamily="@font/app_font"
 ```
-ولذلك سنقوم بتغيير custom views الموجودة في ملفات xml إلى عناصر النظام أو مكتبة الدعم، وتطبيق السطر السابق، ثم تشغيل التطبيق مرة أخرى. 
-كما يمكنك استخدام app أو android للتعريف، لكن  **android:fontFamily** غير متاحة حتى api 16، قبل ذلك يمكنك استخدام **app:fontFamily**. ربما تجد lint warning لكن لا بأس .. فالتعريف صحيح. بعد تطبيق الخطوط في ملفات xml لا حاجة لنا في العناصر المعدلة الموجودة في customfonts ويمكننا حذفها.
+So we'll replace the custom views in the XML files with system or Support Library widgets, apply the line above, and run the app again.
+You can use either `app` or `android` for the declaration, but **android:fontFamily** isn't available until API 16; before that, use **app:fontFamily**. You may see a lint warning, but that's fine — the declaration is correct. Once the fonts are applied in XML, we no longer need the custom views in `customfonts` and can delete them.
 
-**استخدامها عبر  ملف style**  
-يمكننا كذلك استخدامها عبر ملف style لتعريف كالآتي
+**Using them through a style**  
+We can also declare them in a style file like this.
 
 ```java
 <style name="TextAppearance">
         <item name="fontFamily">@font/app_font</item>
 </style>
 ```
-أخيرًا قد تريد تغيير كل الخطوط بالتطبيق لهذه الخطوط مرة واحدة، بدون التعديل على عنصر واجهة معين .. يمكنك ذلك عبر تحديد fontFamily في ثيم التطبيق عبر ملف style كالتالي:  
+Finally, you may want to change every font in the app at once, without touching a specific widget. You can do this by setting `fontFamily` in the app's theme through a style, like so:  
 ```java
 <!-- Base application theme. -->
   <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -115,9 +115,9 @@ app:fontFamily="@font/app_font"
 ```
 
 
-**يمكنك إيجاد النموذج عبر [github](https://github.com/mibrahimdev/Custom-fonts-supportLib-26) ، ومراجعة الخطوات السابقة عبر التنقل بين الـ [commits](https://github.com/mibrahimdev/Custom-fonts-supportLib-26/commits/master)**
+**You can find the sample on [GitHub](https://github.com/mibrahimdev/Custom-fonts-supportLib-26), and review the steps above by browsing through the [commits](https://github.com/mibrahimdev/Custom-fonts-supportLib-26/commits/master).**
 
-مصادر:  
+Sources:  
 
 <https://developer.android.com/guide/topics/ui/look-and-feel/fonts-in-xml.html>  
 <https://segunfamisa.com/posts/custom-fonts-with-android-support-library>  

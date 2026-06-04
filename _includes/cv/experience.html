@@ -1,0 +1,34 @@
+<section class="cv-section" id="experience" aria-labelledby="experience-title">
+  <h2 class="cv-section-title" id="experience-title">Experience</h2>
+  <ol class="cv-exp-timeline">
+    {% for job in site.data.experience %}
+    <li class="cv-exp-item cv-reveal">
+      <span class="cv-exp-logo{% if job.logo_fill %} cv-exp-logo--fill{% endif %}" aria-hidden="true">
+        {% if job.logo %}
+        <img class="cv-exp-logo-img" src="{{ job.logo | prepend: site.baseurl }}" alt="" loading="lazy">
+        {% else %}
+        <span class="cv-exp-logo-monogram">{{ job.company | strip | slice: 0 | upcase }}</span>
+        {% endif %}
+      </span>
+      <div class="cv-exp-body">
+        <header class="cv-exp-header">
+          <h3 class="cv-exp-role">{{ job.role }}</h3>
+          <p class="cv-exp-company">{{ job.company }}</p>
+          <p class="cv-exp-meta">
+            <span class="cv-exp-dates">{{ job.start }} &ndash; {{ job.end }}</span>
+            {% if job.location %}<span class="cv-exp-location">{{ job.location }}</span>{% endif %}
+          </p>
+          {% if job.context %}<p class="cv-exp-context">{{ job.context }}</p>{% endif %}
+        </header>
+        {% if job.bullets %}
+        <ul class="cv-exp-bullets">
+          {% for bullet in job.bullets %}
+          <li class="cv-exp-bullet">{{ bullet }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</section>

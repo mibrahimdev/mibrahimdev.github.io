@@ -1,0 +1,11 @@
+# Education — single source of truth for _includes/cv/education.html
+
+- institution: Aswan University
+  qualification: BSc in Electrical Engineering
+  field: Electronics & Communication
+  year: 2012
+
+- institution: Udacity
+  qualification: Android Developer Nanodegree
+  field: ""
+  year: 2018

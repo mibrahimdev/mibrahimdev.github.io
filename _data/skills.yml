@@ -1,0 +1,62 @@
+# Skills — single source of truth for _includes/cv/skills.html
+# Grouped as {group, items[]}; rendered as chip groups.
+
+- group: Languages
+  items:
+    - Kotlin
+    - Java
+
+- group: Concurrency
+  items:
+    - Kotlin Coroutines
+    - Flow
+    - RxJava
+
+- group: DI
+  items:
+    - Dagger 2
+    - Hilt
+
+- group: Architecture
+  items:
+    - Clean Architecture
+    - MVI
+    - MVVM
+    - MVP
+
+- group: UI
+  items:
+    - Jetpack Compose
+    - Jetpack Libraries
+    - Material Design
+    - Design Systems
+    - Google Maps & Places APIs
+
+- group: Testing
+  items:
+    - Unit Testing
+    - Espresso
+    - Mockito
+
+- group: IoT
+  items:
+    - MQTT
+    - BLE
+    - Matter
+
+- group: Platform
+  items:
+    - Android
+    - Kotlin Multiplatform
+    - Firebase
+
+- group: CI/CD
+  items:
+    - Fastlane
+    - CircleCI
+    - Bamboo
+
+- group: Process
+  items:
+    - Agile
+    - Scrum

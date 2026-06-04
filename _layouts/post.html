@@ -1,18 +1,25 @@
 ---
 layout: default
-comments: true
 ---
 
 <article class="post">
   <h1>{{ page.title }}</h1>
+
+  {% if page.canonical_url %}
+  <p class="post-canonical">
+    Originally published{% if page.original_publication %} in <em>{{ page.original_publication }}</em>{% endif %}
+    on {{ page.date | date: "%B %-d, %Y" }} &middot;
+    <a href="{{ page.canonical_url }}" rel="canonical" target="_blank" rel="noopener">Read the original &rarr;</a>
+  </p>
+  {% endif %}
 
   <div class="entry">
     {{ content }}
   </div>
 
   <div class="date">
-    كُتب في {{ page.date | date: "%d/%m/%Y" }}
+    Written on {{ page.date | date: "%B %-d, %Y" }}
   </div>
-
-  {% include disqus.html %}
 </article>
+
+<script src="{{ '/javascripts/slides.js' | prepend: site.baseurl }}" defer></script>

@@ -1,58 +1,35 @@
-#
-# في هذا الملف ستجد كل المتغيرات التي تتحكم في إعدادات المدونة، شخصّها على حسب متطلباتك
-#
+# Site settings
 
-# اسم المدونة الذي سيظهر في الأعلى
-name: محمد إبراهيم
+# Site name shown in the masthead and as part of the page title in search results
+name: Mohamed Ibrahim
 
-# وصف قصير للمدونة والذي سيظهر تحت اسمها وكجزء من عنوان المدونة في محركات البحث
-description: "وأنّ ليس للإنسان إلا ما سعى .."
+# Short description shown under the name and as part of the page title in search results
+description: "Senior Android Engineer · Kotlin, Jetpack Compose, Kotlin Multiplatform"
 
-# رابط صورة المدونة
-# لإستخدام صورة هويتك في GitHub ضع https://github.com/<اسم_المستخدم>.png في المتغير، مثلا لهويتي الشخصية أستخدم:
+# Avatar shown in the masthead
 avatar: https://github.com/mibrahimdev.png
-# ولإخفاء الصورة نهائيًا احذف الرابط من المتغير
-#avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
 
+# Social card used by jekyll-seo-tag for link previews (1200x630)
+image: /images/social-card.png
 
-#
-# المتغيرات الآتية هي خيارية، عدل عليها إذا أردت تخصيص أكثر للمدونة
-#
-
-# لكل هوية تضعها هنا ستظهر أيقونة في أسفل المدونة
+# Social icons (modern inline-SVG set — see _includes/svg-icons.html).
+# Networks render in the hero (top); the RSS feed renders in the footer (bottom).
 footer-links:
-  dribbble:
-  email:
-  facebook: mibrahimdev
-  flickr:
   github: mibrahimdev
-  instagram:
   linkedin: mibrahimdev
-  pinterest:
-  rss: # ضع أي قيمة هنا لتظهر أيقونة RSS
-  twitter: mibrahimdev
   stackoverflow: /users/4252667/mohamed-ibrahim
-# youtube: # إما channel/<عنوان_قناتك_الطويل> أو user/<اسم-مستخدمك>
-#  googleplus: # رقم التعريف عندما تزور هويتك (كل ما يتبع plus.google.com/)
+  youtube: "@mibrahimdev" # quoted — a leading @ is reserved in YAML
+  rss: true # any value here shows the RSS icon
 
-
-# ضع الاسم Disqus القصير الخاص بك (الاسم القصير وليس اسم المستخدم) لتفعيل الردود على المدونة
-# ستجد الاسم القصير الخاص بك في إعدادات حسابك في Disqus
-disqus: disqus_IJ4ghoNodL 
-
-# إذا أردت تفعيل إحصاءات الزوار في Google Analytics أدخل المعرف الخاص بك (مثلاً UA-2110908-2)
-google_analytics: UA-106142228-1
-
-# عنوان موقعك مثلاً http://barryclark.github.io
-# يستخدم هذا المتغير في الـRSS والـSitemap.xml
+# Site URL, used in RSS and sitemap.xml.
+# Stays on the github.io host until the custom domain is live (see plan §8).
 url: http://mibrahimdev.github.io/
 
-# إذا كانت المدونة خاصة للصفحات المشاريع في GitHub (http://yourusername.github.io/repository-name مثلاً) عدل هذا المتغير ليطابق اسم المشروع
 baseurl: ""
 
 
 #
-# هذه المتغيرات خاصة بـJekyll ولا أنصح بتعديلها، لذلك لا حاجة لشرحها
+# Jekyll settings — no need to edit these
 #
 
 permalink: /:title/
@@ -73,11 +50,12 @@ kramdown:
 # Set the Sass partials directory, as we're using @imports
 # sass:
 #   style: :expanded # You might prefer to minify using :compressed
-  
+
 # Use the following plug-ins
 plugins:
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
+  - jekyll-seo-tag # SEO, Open Graph, Twitter cards, and JSON-LD
 
 # Exclude these files from your production _site
 exclude:

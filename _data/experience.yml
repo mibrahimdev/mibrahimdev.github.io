@@ -1,0 +1,87 @@
+# Work experience — single source of truth for _includes/cv/experience.html
+# Ordered most-recent first. TryCarriage/Delivery Hero is modelled as TWO
+# separate tenures per the resume (Dec 2022–Jun 2023 and Sep 2019–Jan 2022).
+#
+# Optional `logo:` — path to an official logo SVG/PNG under /images/logos/.
+# When present it renders in the timeline badge; otherwise a monogram (the
+# company's first initial) is shown. Drop a file at /images/logos/<name>.svg
+# and add `logo: /images/logos/<name>.svg` to that entry to use a real logo.
+
+- company: Dyson
+  role: Senior Android Engineer
+  start: Mar 2024
+  end: Mar 2026
+  location: Bristol, UK
+  context: Smart home technology and IoT devices.
+  logo: /images/logos/dyson.png
+  logo_fill: true # opaque app-tile — fills the badge edge-to-edge
+  bullets:
+    - Contributed to the development of multiple features across various product categories within the MyDyson app (5M+ downloads).
+    - Optimised and enhanced IoT connectivity logic (MQTT, BLE, Matter), improving device communication stability and reliability.
+    - Collaborated on the delivery of a new navigation design system by writing and refactoring UI tests across multiple product categories.
+    - Collaborated cross-functionally to deliver three core features for the Robot Vacuum Cleaner product line.
+
+- company: TryCarriage (Delivery Hero)
+  role: Senior Android Developer
+  start: Dec 2022
+  end: Jun 2023
+  location: Qatar (Remote)
+  context: Food delivery platform operating in Qatar.
+  logo: /images/logos/delivery-hero.png
+  bullets:
+    - Delivered the new search UI feature while maintaining the same backend API contract.
+    - Introduced a dynamic features mechanism to enable faster build delivery and A/B tests.
+
+- company: Swvl
+  role: Senior Android Developer
+  start: Feb 2022
+  end: Nov 2022
+  location: Remote
+  context: Transportation and mobility.
+  logo: /images/logos/swvl.png
+  bullets:
+    - Refactored the base MVIViewModel to migrate from Channels and Rx code to Kotlin Flow with minimal code changes.
+    - Contributed to a B2B-focused team, enhancing the app and preparing it for sale to external entities.
+    - Worked on B2B features with the Shotl entity, ensuring the codebase followed Swvl code standards.
+
+- company: TryCarriage (Delivery Hero)
+  role: Senior Android Developer
+  start: Sep 2019
+  end: Jan 2022
+  location: Qatar (Remote)
+  context: Food delivery platform operating in Qatar.
+  logo: /images/logos/delivery-hero.png
+  bullets:
+    - Built and maintained core features of the food delivery app over a multi-year tenure.
+    - Drove architecture and code-quality improvements across the Android codebase.
+
+- company: Vodafone (VIS)
+  role: Senior Android Developer
+  start: Dec 2017
+  end: Jun 2019
+  location: Egypt
+  context: Telecom company operating worldwide.
+  logo: /images/logos/vodafone.svg
+  bullets:
+    - Delivered the domain-layer code for the Postpaid screen with scalability to add complex UI components while calling more than seven APIs.
+    - Optimised the Clean Architecture base classes, including UseCase, error handling, and RxJava streams.
+
+- company: IntelliCoders
+  role: Junior Android Developer
+  start: Apr 2017
+  end: Dec 2017
+  location: Egypt
+  context: Family-locator startup.
+  bullets:
+    - Developed the Shaifak app from scratch, targeting the Egyptian market.
+    - Leveraged Firebase to track location and update it instantly.
+
+- company: Entrepreware
+  role: Junior Android Developer
+  start: Sep 2016
+  end: Apr 2017
+  location: Egypt
+  context: Educational management system for schools.
+  bullets:
+    - Developed the Edufy app from scratch, used by teachers to update students' reports.
+    - Introduced MVP architecture to separate business logic from UI code.
