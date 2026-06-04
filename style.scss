@@ -155,68 +155,40 @@ blockquote {
 }
 
 .masthead {
-  padding: 20px 0;
+  padding: 18px 0;
   border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   @include mobile {
+    flex-direction: column;
+    gap: 10px;
     text-align: center;
   }
 }
 
-.site-avatar {
-  float: left;
-  width: 70px;
-  height: 70px;
-  margin-right: 15px;
-
-  @include mobile {
-    float: none;
-    display: block;
-    margin: 0 auto;
-  }
-
-  img {
-    border-radius: 5px;
-  }
-}
-
-.site-info {
-  float: left;
-
-  @include mobile {
-    float: none;
-    display: block;
-    margin: 0 auto;
-  }
-}
-
-.site-name {
-  margin: 0;
+// Site wordmark (top-left). Mono, code-like brand to match the terminal aesthetic.
+.site-brand {
+  font-family: $code-font-family;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
   color: var(--color-heading);
-  cursor: pointer;
-  font-weight: normal;
-  font-size: 28px;
-}
 
-.site-description {
-  margin: -5px 0 0 0;
-  color: var(--color-text-muted);
-  font-size: 16px;
+  &:hover {
+    color: var(--color-link);
+  }
 
   @include mobile {
-    margin: 3px 0;
+    font-size: 20px;
   }
 }
 
 nav {
-  float: right;
-  margin-top: 23px; // @TODO: Vertically middle align
   font-size: 18px;
 
   @include mobile {
-    float: none;
-    margin-top: 9px;
-    display: block;
     font-size: 16px;
   }
 
@@ -500,6 +472,36 @@ footer {
     font-weight: 700;
   }
 
+  // Identity row: avatar beside name/title/location.
+  .cv-hero-head {
+    display: flex;
+    align-items: center;
+    gap: 1.2em;
+
+    @include mobile {
+      gap: 0.9em;
+    }
+  }
+
+  .cv-hero-avatar {
+    flex: 0 0 auto;
+    width: 84px;
+    height: 84px;
+    margin: 0; // override global `img { margin: 0 auto 1em }` (auto margins break flex row)
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    object-fit: cover;
+
+    @include mobile {
+      width: 64px;
+      height: 64px;
+    }
+  }
+
+  .cv-hero-identity {
+    min-width: 0;
+  }
+
   .cv-hero-name {
     margin: 0;
     font-size: 34px;
@@ -609,8 +611,15 @@ footer {
   }
 
   .cv-exp-logo-img {
-    width: 100%;
-    height: 100%;
+    // The global `img { margin: 0 auto 1em }` rule was the real centering bug:
+    // its margin-bottom:1em pushed logos UP (top-aligned), the auto margins
+    // skewed them sideways. Reset margin and let the flex parent center on both
+    // axes; max-* + auto keeps any aspect ratio intact.
+    margin: 0;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
     object-fit: contain;
   }
 

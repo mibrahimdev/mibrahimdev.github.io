@@ -22,9 +22,16 @@
       <span class="cv-hero-prompt-sigil" aria-hidden="true">$</span> whoami
     </p>
     <div class="cv-hero-output">
-      <h1 class="cv-hero-name">Mohamed Ibrahim</h1>
-      <p class="cv-hero-title">Senior Android Engineer</p>
-      <p class="cv-hero-location">Bristol, UK</p>
+      <div class="cv-hero-head">
+        {% if site.avatar %}
+        <img class="cv-hero-avatar" src="{{ site.avatar }}" alt="Mohamed Ibrahim" width="84" height="84" loading="eager">
+        {% endif %}
+        <div class="cv-hero-identity">
+          <h1 class="cv-hero-name">Mohamed Ibrahim</h1>
+          <p class="cv-hero-title">Senior Android Engineer</p>
+          <p class="cv-hero-location">Bristol, UK</p>
+        </div>
+      </div>
       <p class="cv-hero-summary">
         Senior Android Engineer with 9 years of experience across IoT, food delivery,
         mobility, and telecom. Most recently worked on MyDyson, Dyson&rsquo;s smart home
