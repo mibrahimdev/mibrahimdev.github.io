@@ -5,6 +5,7 @@ date: 2020-02-19
 canonical_url: https://medium.com/swlh/hello-kotlin-coroutines-4e40cb9a106c
 original_publication: The Startup
 description: "Any UI framework has its own main thread to do the rendering and observing touch events, this thread by all means is the most important thread you should care of. User will never know…"
+tag: Coroutines
 ---
 
 ![](/images/posts/hello-kotlin-coroutines/01.jpeg)

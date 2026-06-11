@@ -1,11 +1,12 @@
-# Education — single source of truth for _includes/cv/education.html
-
-- institution: Aswan University
-  qualification: BSc in Electrical Engineering
-  field: Electronics & Communication
-  year: 2012
+# Education — single source of truth for _includes/cv/info.html
+# Synced with the CV (June 10, 2026). Newest first.
 
 - institution: Udacity
   qualification: Android Developer Nanodegree
   field: ""
-  year: 2018
+  year: Aug 2018
+
+- institution: Aswan University
+  qualification: BSc in Electrical Engineering
+  field: Electronics & Communication
+  year: Jun 2012

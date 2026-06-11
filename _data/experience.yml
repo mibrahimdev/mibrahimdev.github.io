@@ -1,55 +1,58 @@
 # Work experience — single source of truth for _includes/cv/experience.html
-# Ordered most-recent first. TryCarriage/Delivery Hero is modelled as TWO
-# separate tenures per the resume (Dec 2022–Jun 2023 and Sep 2019–Jan 2022).
+# Content synced with the CV (Google Doc, last updated June 10, 2026).
+# Ordered most-recent first. TryCarriage/Delivery Hero stays modelled as TWO
+# separate tenures (Dec 2022–Jun 2023 remote for Qatar, Sep 2019–Jan 2022
+# on-site in Kuwait) so the timeline reads chronologically.
 #
 # Optional `logo:` — path to an official logo SVG/PNG under /images/logos/.
 # When present it renders in the timeline badge; otherwise a monogram (the
-# company's first initial) is shown. Drop a file at /images/logos/<name>.svg
-# and add `logo: /images/logos/<name>.svg` to that entry to use a real logo.
+# company's first initial) is shown. `logo_fill: true` is for opaque app-tile
+# marks that should fill the badge edge-to-edge.
 
 - company: Dyson
   role: Senior Android Engineer
   start: Mar 2024
   end: Mar 2026
   location: Bristol, UK
-  context: Smart home technology and IoT devices.
+  context: Smart-home technology and IoT devices — MyDyson app (5M+ downloads).
   logo: /images/logos/dyson.png
-  logo_fill: true # opaque app-tile — fills the badge edge-to-edge
+  logo_fill: true
   bullets:
-    - Contributed to the development of multiple features across various product categories within the MyDyson app (5M+ downloads).
-    - Optimised and enhanced IoT connectivity logic (MQTT, BLE, Matter), improving device communication stability and reliability.
-    - Collaborated on the delivery of a new navigation design system by writing and refactoring UI tests across multiple product categories.
-    - Collaborated cross-functionally to deliver three core features for the Robot Vacuum Cleaner product line.
+    - Optimised IoT connectivity logic (MQTT, BLE), improving device communication stability and reliability.
+    - "Implemented Android-side Matter support for Dyson products: Matter MQTT messaging, dynamic topic subscriptions, onboarding payload generation and PAKE/verifier logic, plus the engineering UI for commissioning and debug flows."
+    - Led the migration of the UI test suite that enabled the release of the new Global Navigation UI to over 5 million MyDyson users, then led the post-launch cleanup — retiring legacy activities, menus and feature-toggle plumbing and fixing deep-link and navigation regressions.
+    - Led the Android implementation and delivery of three major 2D-map features — Target Area, Rules and Furniture — for the Dyson Spot+Scrub AI robot, giving users a smooth, responsive way to manage cleaning areas.
+    - Built the first stage of a Kotlin Multiplatform logging library at Dyson, delivering HTTP API-call logging with a design extensible to MQTT and BLE, to streamline log capture and sharing across QA, app, backend and embedded teams.
 
 - company: TryCarriage (Delivery Hero)
   role: Senior Android Developer
   start: Dec 2022
   end: Jun 2023
   location: Qatar (Remote)
-  context: Food delivery platform operating in Qatar.
+  context: Food-delivery platform operating in Qatar.
   logo: /images/logos/delivery-hero.png
   bullets:
-    - Delivered the new search UI feature while maintaining the same backend API contract.
-    - Introduced a dynamic features mechanism to enable faster build delivery and A/B tests.
+    - Introduced a dynamic-features mechanism enabling faster build delivery and A/B testing.
+    - Delivered the new search UI feature while maintaining the existing backend API contract.
 
 - company: Swvl
   role: Senior Android Developer
   start: Feb 2022
   end: Nov 2022
   location: Remote
-  context: Transportation and mobility.
+  context: Mass-transit and mobility technology.
   logo: /images/logos/swvl.png
   bullets:
-    - Refactored the base MVIViewModel to migrate from Channels and Rx code to Kotlin Flow with minimal code changes.
-    - Contributed to a B2B-focused team, enhancing the app and preparing it for sale to external entities.
-    - Worked on B2B features with the Shotl entity, ensuring the codebase followed Swvl code standards.
+    - Refactored the base MVIViewModel to migrate from Channels and RxJava to Kotlin Flow, with minimal changes to consuming code.
+    - Contributed to a B2B-focused team, improving the white-labelling process to deliver branded apps faster to Swvl's partners.
+    - Delivered B2B features in partnership with Shotl, keeping the codebase aligned with Swvl's coding standards.
 
 - company: TryCarriage (Delivery Hero)
   role: Senior Android Developer
   start: Sep 2019
   end: Jan 2022
   location: Kuwait
-  context: Food delivery platform operating in Kuwait.
+  context: Food-delivery platform operating in Kuwait.
   logo: /images/logos/delivery-hero.png
   bullets:
     - Built and maintained core features of the food delivery app over a multi-year tenure.
@@ -60,11 +63,11 @@
   start: Dec 2017
   end: Jun 2019
   location: Egypt
-  context: Telecom company operating worldwide.
+  context: Global telecommunications group.
   logo: /images/logos/vodafone.svg
   bullets:
-    - Delivered the domain-layer code for the Postpaid screen with scalability to add complex UI components while calling more than seven APIs.
-    - Optimised the Clean Architecture base classes, including UseCase, error handling, and RxJava streams.
+    - Delivered the domain-layer code for the Postpaid screen, designed to scale to complex UI while orchestrating more than seven API calls.
+    - Optimised the Clean Architecture base classes — UseCase abstractions, error handling and RxJava streams.
 
 - company: IntelliCoders
   role: Junior Android Developer
@@ -73,15 +76,15 @@
   location: Egypt
   context: Family-locator startup.
   bullets:
-    - Developed the Shaifak app from scratch, targeting the Egyptian market.
-    - Leveraged Firebase to track location and update it instantly.
+    - Built the Shaifak family-locator app from scratch for the Egyptian market.
+    - Used Firebase Realtime Database for live location tracking and instant updates.
 
 - company: Entrepreware
   role: Junior Android Developer
   start: Sep 2016
   end: Apr 2017
   location: Egypt
-  context: Educational management system for schools.
+  context: Education-management system for schools.
   bullets:
-    - Developed the Edufy app from scratch, used by teachers to update students' reports.
-    - Introduced MVP architecture to separate business logic from UI code.
+    - Built the Edufy app from scratch, used by teachers to update student reports.
+    - Introduced MVP architecture to separate business logic from UI.

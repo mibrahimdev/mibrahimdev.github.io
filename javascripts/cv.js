@@ -1,16 +1,14 @@
-// cv.js — scroll-reveal for CV timeline items (.cv-reveal).
-// Adds `.is-visible` as each element scrolls into view. Honors
-// prefers-reduced-motion by revealing everything immediately, and
-// degrades gracefully (reveal all) when IntersectionObserver is missing.
+// cv.js — scroll-reveal for the experience timeline (.tl-item).
+// Adds `.is-visible` as each entry scrolls into view, which triggers the
+// spine-draw / dot-pop / fade-up keyframes in style.scss. Under
+// prefers-reduced-motion the CSS skips the animations, so adding the class
+// just shows the content instantly. Degrades gracefully (reveal all) when
+// IntersectionObserver is missing.
 (function () {
-  var items = document.querySelectorAll('.cv-reveal');
+  var items = document.querySelectorAll('.tl-item');
   if (!items.length) return;
 
-  var reduceMotion =
-    window.matchMedia &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (reduceMotion || !('IntersectionObserver' in window)) {
+  if (!('IntersectionObserver' in window)) {
     for (var i = 0; i < items.length; i++) items[i].classList.add('is-visible');
     return;
   }
@@ -24,7 +22,7 @@
         }
       });
     },
-    { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 }
+    { root: null, rootMargin: '0px 0px -8% 0px', threshold: 0.25 }
   );
 
   items.forEach(function (el) {

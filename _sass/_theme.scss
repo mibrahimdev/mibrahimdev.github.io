@@ -1,62 +1,51 @@
 //
 // THEME TOKENS (CSS custom properties)
 //
-// Light is the no-preference fallback. OS dark wins only when the user
-// has made no manual choice (`:root:not([data-theme])`). A manual choice
-// sets `data-theme` on <html> and overrides everything.
+// "Refined Terminal" palette — warm near-black / warm off-white in oklch with
+// a Kotlin-violet accent (hue 295). Dark is the site default (no data-theme),
+// matching the design handoff; a manual choice sets `data-theme` on <html>
+// and persists via javascripts/theme-toggle.js.
 //
-// Syntax-highlighting tokens (--syn-*) follow the theme too: "One Light"
-// (Atom) in light, "Monokai" (Sublime Text) in dark. Structural rules live
-// in _highlights.scss; only the palette values live here.
+// Legacy --color-* aliases are kept at the bottom so long-form post styles
+// (entry, slides, canonical banner) keep working without a rewrite.
+//
+// Syntax-highlighting tokens (--syn-*) follow the theme: "Monokai" in dark,
+// "One Light" (Atom) in light. Structural rules live in _highlights.scss.
 //
 
-:root,
-[data-theme="light"] {
-  --color-bg: #fff;
-  --color-surface: #f8f8f8;
-  --color-surface-alt: #f0f0f0;
-  --color-text: #333;
-  --color-text-muted: #666;
-  --color-heading: #222;
-  --color-border: #eee;
-  --color-link: #4183C4;
-  --color-link-hover: #2a5d8f;
-  --color-accent: #4183C4;
-  --color-code-bg: #fff;
-  --color-code-text: #515151;
-  --color-code-inline: #dd2b55;
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.1);
+:root {
+  --accent-h: 295;
+  --accent: oklch(0.58 0.21 var(--accent-h));
+  --accent-soft: oklch(0.58 0.21 var(--accent-h) / 0.12);
+  --accent-line: oklch(0.58 0.21 var(--accent-h) / 0.3);
 
-  // Syntax — "One Light" (Atom)
-  --syn-bg: #f6f8fa;
-  --syn-text: #383a42;
-  --syn-border: #d8dee4;
-  --syn-hll: #fff8c5;
-  --syn-comment: #a0a1a7;
-  --syn-keyword: #a626a4;
-  --syn-operator: #e45649;
-  --syn-name: #4078f2;
-  --syn-string: #50a14f;
-  --syn-number: #986801;
-  --syn-err-fg: #e45649;
-  --syn-err-bg: #faecec;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --maxw: 1080px;
 }
 
+// ---- Dark (default) ----
+:root,
 [data-theme="dark"] {
-  --color-bg: #0f1115;
-  --color-surface: #1a1d23;
-  --color-surface-alt: #22262e;
-  --color-text: #e6e6e6;
-  --color-text-muted: #9aa0aa;
-  --color-heading: #fff;
-  --color-border: #2a2e36;
-  --color-link: #5aa0f0;
-  --color-link-hover: #82b8f5;
-  --color-accent: #5aa0f0;
-  --color-code-bg: #1a1d23;
+  --bg: oklch(0.17 0.008 285);
+  --bg-2: oklch(0.205 0.009 285);
+  --surface: oklch(0.225 0.01 285);
+  --surface-2: oklch(0.255 0.011 285);
+  --border: oklch(0.32 0.012 285);
+  --border-soft: oklch(0.28 0.01 285);
+  --text: oklch(0.95 0.006 285);
+  --text-2: oklch(0.78 0.01 285);
+  --text-3: oklch(0.62 0.012 285);
+  --shadow: 0 1px 2px oklch(0 0 0 / 0.4), 0 8px 30px oklch(0 0 0 / 0.3);
+  --glow: 0 0 0 1px var(--accent-line), 0 10px 40px oklch(0.58 0.21 var(--accent-h) / 0.16);
+
+  --accent-bright: oklch(0.68 0.19 var(--accent-h));
+
+  --color-code-bg: var(--surface);
   --color-code-text: #c9d1d9;
   --color-code-inline: #ff6b9d;
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.5);
 
   // Syntax — "Monokai" (Sublime Text)
   --syn-bg: #272822;
@@ -73,35 +62,51 @@
   --syn-err-bg: #1e0010;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-    --color-bg: #0f1115;
-    --color-surface: #1a1d23;
-    --color-surface-alt: #22262e;
-    --color-text: #e6e6e6;
-    --color-text-muted: #9aa0aa;
-    --color-heading: #fff;
-    --color-border: #2a2e36;
-    --color-link: #5aa0f0;
-    --color-link-hover: #82b8f5;
-    --color-accent: #5aa0f0;
-    --color-code-bg: #1a1d23;
-    --color-code-text: #c9d1d9;
-    --color-code-inline: #ff6b9d;
-    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.5);
+[data-theme="light"] {
+  --bg: oklch(0.985 0.003 285);
+  --bg-2: oklch(0.965 0.004 285);
+  --surface: oklch(1 0 0);
+  --surface-2: oklch(0.975 0.004 285);
+  --border: oklch(0.9 0.006 285);
+  --border-soft: oklch(0.93 0.005 285);
+  --text: oklch(0.22 0.012 285);
+  --text-2: oklch(0.42 0.012 285);
+  --text-3: oklch(0.58 0.012 285);
+  --shadow: 0 1px 2px oklch(0.2 0.02 285 / 0.06), 0 10px 34px oklch(0.2 0.02 285 / 0.08);
+  --glow: 0 0 0 1px var(--accent-line), 0 12px 40px oklch(0.58 0.21 var(--accent-h) / 0.14);
 
-    // Syntax — "Monokai" (Sublime Text)
-    --syn-bg: #272822;
-    --syn-text: #f8f8f2;
-    --syn-border: #3e3d32;
-    --syn-hll: #49483e;
-    --syn-comment: #75715e;
-    --syn-keyword: #66d9ef;
-    --syn-operator: #f92672;
-    --syn-name: #a6e22e;
-    --syn-string: #e6db74;
-    --syn-number: #ae81ff;
-    --syn-err-fg: #f92672;
-    --syn-err-bg: #1e0010;
-  }
+  --accent-bright: oklch(0.48 0.21 var(--accent-h));
+
+  --color-code-bg: #fff;
+  --color-code-text: #515151;
+  --color-code-inline: #dd2b55;
+
+  // Syntax — "One Light" (Atom)
+  --syn-bg: #f6f8fa;
+  --syn-text: #383a42;
+  --syn-border: #d8dee4;
+  --syn-hll: #fff8c5;
+  --syn-comment: #a0a1a7;
+  --syn-keyword: #a626a4;
+  --syn-operator: #e45649;
+  --syn-name: #4078f2;
+  --syn-string: #50a14f;
+  --syn-number: #986801;
+  --syn-err-fg: #e45649;
+  --syn-err-bg: #faecec;
+}
+
+// ---- Legacy aliases (long-form post styles still reference these) ----
+:root {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-2);
+  --color-text: var(--text-2);
+  --color-text-muted: var(--text-3);
+  --color-heading: var(--text);
+  --color-border: var(--border-soft);
+  --color-link: var(--accent-bright);
+  --color-link-hover: var(--accent);
+  --color-accent: var(--accent);
+  --shadow-card: var(--shadow);
 }

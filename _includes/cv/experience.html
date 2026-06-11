@@ -1,34 +1,45 @@
-<section class="cv-section" id="experience" aria-labelledby="experience-title">
-  <h2 class="cv-section-title" id="experience-title">Experience</h2>
-  <ol class="cv-exp-timeline">
+<!--
+  cv/experience.html — animated vertical timeline. As each .tl-item scrolls
+  into view, javascripts/cv.js adds .is-visible: the violet spine draws down,
+  the dot pops in and the entry fades up (staggered via the --d custom prop).
+  Reduced-motion users see everything instantly (see style.scss).
+-->
+<section class="section flush" id="experience" aria-labelledby="experience-title">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">cat ~/experience</div>
+      <h2 id="experience-title">Experience</h2>
+    </div>
+  </div>
+  <div class="tl">
     {% for job in site.data.experience %}
-    <li class="cv-exp-item cv-reveal">
-      <span class="cv-exp-logo{% if job.logo_fill %} cv-exp-logo--fill{% endif %}" aria-hidden="true">
-        {% if job.logo %}
-        <img class="cv-exp-logo-img" src="{{ job.logo | prepend: site.baseurl }}" alt="" loading="lazy">
-        {% else %}
-        <span class="cv-exp-logo-monogram">{{ job.company | strip | slice: 0 | upcase }}</span>
-        {% endif %}
-      </span>
-      <div class="cv-exp-body">
-        <header class="cv-exp-header">
-          <h3 class="cv-exp-role">{{ job.role }}</h3>
-          <p class="cv-exp-company">{{ job.company }}</p>
-          <p class="cv-exp-meta">
-            <span class="cv-exp-dates">{{ job.start }} &ndash; {{ job.end }}</span>
-            {% if job.location %}<span class="cv-exp-location">{{ job.location }}</span>{% endif %}
-          </p>
-          {% if job.context %}<p class="cv-exp-context">{{ job.context }}</p>{% endif %}
-        </header>
+    <div class="tl-item" style="--d: {{ forloop.index0 | times: 0.06 }}s">
+      <span class="tl-dot" aria-hidden="true"></span>
+      <div class="tl-content">
+        <div class="tl-when mono">{{ job.start }} &ndash; {{ job.end }} &middot; {{ job.location }}</div>
+        <div class="exp-head">
+          <div class="exp-logo{% if job.logo_fill %} exp-logo--fill{% endif %}" aria-hidden="true">
+            {% if job.logo %}
+            <img src="{{ job.logo | prepend: site.baseurl }}" alt="" loading="lazy" />
+            {% else %}
+            <span class="exp-monogram">{{ job.company | strip | slice: 0 | upcase }}</span>
+            {% endif %}
+          </div>
+          <div>
+            <h3 class="exp-title">{{ job.role }}</h3>
+            <div class="exp-company">{{ job.company }}</div>
+          </div>
+        </div>
+        {% if job.context %}<div class="exp-desc">{{ job.context }}</div>{% endif %}
         {% if job.bullets %}
-        <ul class="cv-exp-bullets">
+        <ul class="exp-bullets">
           {% for bullet in job.bullets %}
-          <li class="cv-exp-bullet">{{ bullet }}</li>
+          <li>{{ bullet }}</li>
           {% endfor %}
         </ul>
         {% endif %}
       </div>
-    </li>
+    </div>
     {% endfor %}
-  </ol>
+  </div>
 </section>

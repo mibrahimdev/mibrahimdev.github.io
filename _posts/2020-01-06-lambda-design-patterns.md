@@ -5,6 +5,7 @@ date: 2020-01-06
 canonical_url: https://medium.com/@mibrahimdev/lambda-design-patterns-d031451fccb1
 original_publication: Medium
 description: "At the beginning of learning programming and Android, writing code for me was just to learn the language and the tools it provides to just finish the job or the task. after some point…"
+tag: Patterns
 ---
 
 ### Lambda design patterns in Kotlin

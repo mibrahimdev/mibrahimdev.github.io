@@ -5,6 +5,7 @@ date: 2021-08-11
 canonical_url: https://levelup.gitconnected.com/how-to-be-good-they-cant-ignore-you-the-software-engineering-version-ed80a53a0bdb
 original_publication: Level Up Coding
 description: "Lately, we’ve started to discuss various topics related to Android, Clean Architecture, Unit Testing, Rx and more. So feel free to join us at the NerdDroid club at Clubhouse."
+tag: Career
 ---
 
 ![](/images/posts/how-to-be-good-they-cant-ignore-you-the-software-engineering-version/01.jpeg)

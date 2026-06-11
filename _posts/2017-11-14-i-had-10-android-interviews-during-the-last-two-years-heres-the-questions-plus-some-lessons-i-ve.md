@@ -5,6 +5,7 @@ date: 2017-11-14
 canonical_url: https://medium.com/android-news/i-had-10-android-interviews-during-the-last-two-years-heres-the-questions-plus-some-lessons-i-ve-cdc583dfbc65
 original_publication: Android News
 description: "I wrote this blog post at the Udacity forum, thought sharing it here is a good thing."
+tag: Career
 ---
 
 ### I had 10 Android interviews during the last two years, here’s the questions plus some lessons I’ve learned
