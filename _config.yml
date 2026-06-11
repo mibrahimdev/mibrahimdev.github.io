@@ -13,13 +13,28 @@ avatar: https://github.com/mibrahimdev.png
 image: /images/social-card.png
 
 # Social icons (modern inline-SVG set — see _includes/svg-icons.html).
-# Networks render in the hero (top); the RSS feed renders in the footer (bottom).
+# Rendered in the home hero and the site footer.
 footer-links:
   github: mibrahimdev
   linkedin: mibrahimdev
   stackoverflow: /users/4252667/mohamed-ibrahim
   youtube: "@mibrahimdev" # quoted — a leading @ is reserved in YAML
+  email: mibrahim.dev@gmail.com
   rss: true # any value here shows the RSS icon
+
+# Download CV — direct PDF export of the public Google Doc (always the latest
+# version, no committed binary). Swap the doc id if the CV moves.
+cv_url: https://docs.google.com/document/d/19t0GOOusM0mNlJBHKPU1zR8bi7fLvXyPaOsIL6qKOpI/export?format=pdf
+
+# YouTube channel — drives the /videos/ tab. The uploads playlist is the
+# channel id with the leading "UC" swapped for "UU"; embedding it always
+# shows the latest uploads with zero maintenance.
+youtube:
+  handle: "@mibrahimdev"
+  url: https://www.youtube.com/@mibrahimdev
+  channel_id: UCGbugmMPs-ChfBcA81p2YZQ
+  uploads_playlist: UUGbugmMPs-ChfBcA81p2YZQ
+  tagline: "Learn it by doing, master it by explaining — enjoy the journey in between."
 
 # Site URL, used in RSS and sitemap.xml.
 # Stays on the github.io host until the custom domain is live (see plan §8).

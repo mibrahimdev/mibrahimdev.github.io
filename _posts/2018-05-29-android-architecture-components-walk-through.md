@@ -5,6 +5,7 @@ date: 2018-05-29
 canonical_url: https://medium.com/@mibrahimdev/android-architecture-components-walk-through-b19b439a2f01
 original_publication: Medium
 description: "It’s been a while since Google has released their sets of Architecture libraries or as they’re calling it “Components” , I didn’t check it once it came out but it took me a couple…"
+tag: Architecture
 ---
 
 ![](/images/posts/android-architecture-components-walk-through/01.jpeg)

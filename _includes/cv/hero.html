@@ -1,67 +1,55 @@
 <!--
-  cv/hero.html — text-only terminal / `whoami` hero (mono aesthetic, no photo).
-  Class names used (for the styling agent to target):
-    .cv-hero               outer hero section wrapper
-    .cv-hero-terminal      terminal-window container
-    .cv-hero-prompt        the `$ whoami` command line
-    .cv-hero-prompt-sigil  the leading `$` glyph
-    .cv-hero-output        block holding the resolved identity
-    .cv-hero-name          "Mohamed Ibrahim"
-    .cv-hero-title         "Senior Android Engineer"
-    .cv-hero-location      "Bristol, UK"
-    .cv-hero-summary       one-line summary
-    .cv-hero-actions       row of action links/buttons
-    .cv-hero-email         mailto link
-    .cv-hero-cv            "Download CV (PDF)" anchor (PENDING phone-free PDF)
-    .cv-hero-cv-note       visible pending note for the CV download
-    .cv-hero-social        social icon row (reuses svg-icons.html)
+  cv/hero.html — "Refined Terminal" hero: $ whoami prompt, display headline
+  with the Kotlin-violet accent, CV-profile tagline, mono meta row, actions
+  (Download CV / Read the blog / socials) and the avatar with a status tag.
 -->
-<section class="cv-hero" id="top">
-  <div class="cv-hero-terminal" role="banner">
-    <p class="cv-hero-prompt">
-      <span class="cv-hero-prompt-sigil" aria-hidden="true">$</span> whoami
-    </p>
-    <div class="cv-hero-output">
-      <div class="cv-hero-head">
-        {% if site.avatar %}
-        <img class="cv-hero-avatar" src="{{ site.avatar }}" alt="Mohamed Ibrahim" width="84" height="84" loading="eager">
-        {% endif %}
-        <div class="cv-hero-identity">
-          <h1 class="cv-hero-name">Mohamed Ibrahim</h1>
-          <p class="cv-hero-title">Senior Android Engineer</p>
-          <p class="cv-hero-location">Bristol, UK</p>
-        </div>
-      </div>
-      <p class="cv-hero-summary">
-        Senior Android Engineer with 9 years of experience across IoT, food delivery,
-        mobility, and telecom. Most recently worked on MyDyson, Dyson&rsquo;s smart home
-        app used by millions worldwide. Strong in Kotlin, Jetpack Compose, and
-        Coroutines, with end-to-end ownership from architecture to release.
-        Product-focused, collaborative, and currently expanding into Kotlin
-        Multiplatform, with an interest in technical leadership.
+<header class="hero" id="top">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-prompt eyebrow">whoami</div>
+      <h1>
+        Senior Android Engineer<br />
+        building <span class="accent">reliable</span>,<br />
+        delightful apps.
+      </h1>
+      <p class="hero-sub">
+        9+ years building consumer Android at scale across IoT, food delivery,
+        mobility and telecom &mdash; most recently on MyDyson, Dyson&rsquo;s smart-home
+        app used by millions worldwide, with end-to-end ownership from
+        architecture through release. Deep in Kotlin, Jetpack Compose and
+        Coroutines, expanding into Kotlin Multiplatform.
       </p>
+      <div class="hero-meta">
+        <span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle fill="none" stroke="currentColor" stroke-width="2" cx="12" cy="10" r="2.5"/></svg>
+          Bristol, UK
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2Z"/></svg>
+          9+ yrs experience
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12l3 5-9 13L3 8l3-5Zm.5 2L5 7.5h3.2L9.5 5H6.5Zm4 0L9.3 7.5h5.4L13.5 5h-3Zm5.3 0-1.3 2.5H18L16.8 5h-1ZM5.4 9.5l4.3 6.2-1.6-6.2H5.4Zm5.3 0 1.3 8 1.3-8h-2.6Zm4.3 0-1.6 6.2 4.3-6.2h-2.7Z"/></svg>
+          Kotlin &middot; Compose &middot; KMP
+        </span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="{{ site.cv_url }}" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a1 1 0 011 1v10.59l3.3-3.3a1 1 0 111.4 1.42l-5 5a1 1 0 01-1.4 0l-5-5a1 1 0 111.4-1.42l3.3 3.3V3a1 1 0 011-1zM5 20a1 1 0 100 2h14a1 1 0 100-2H5z"/></svg>
+          Download CV
+        </a>
+        <a class="btn btn-ghost" href="{{ site.baseurl }}/blog/">
+          Read the blog
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <span class="hero-socials">
+          {% include svg-icons.html only="social" %}
+        </span>
+      </div>
     </div>
-
-    <div class="cv-hero-actions">
-      <a class="cv-hero-email" href="mailto:mibrahim.dev@gmail.com">mibrahim.dev@gmail.com</a>
-
-      <!--
-        Download CV (PDF) — PENDING a phone-free export.
-        The current Mohamed_Ibrahim_CV.pdf contains a phone number and is NOT
-        committed. Keep this link commented out until a phone-free PDF ships.
-      -->
-      <!--
-      <a class="cv-hero-cv" href="{{ '/Mohamed_Ibrahim_CV.pdf' | prepend: site.baseurl }}" data-status="pending-phone-free-pdf">
-        Download CV (PDF)
-      </a>
-      -->
-      <span class="cv-hero-cv-note" data-status="pending-phone-free-pdf">
-        CV download coming soon (phone-free PDF pending).
-      </span>
-
-      <span class="cv-hero-social">
-        {% include svg-icons.html only="social" %}
-      </span>
+    <div class="hero-avatar">
+      <img src="{{ site.avatar }}" alt="Mohamed Ibrahim" width="280" height="280" loading="eager" />
+      <div class="avatar-tag mono">status: <b>open to work</b></div>
     </div>
   </div>
-</section>
+</header>

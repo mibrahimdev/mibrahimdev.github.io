@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Dependency Injection: The Road to Dagger"
+tag: Architecture
 ---
 Most of us, when we start out, don't give much thought to how many objects we create to get the system up and running. How easy it is to type `new` and let the editor auto-complete the rest, building yet another object. But a closer look at the code reveals that you've created plenty of objects — necessary and unnecessary alike — and the machine running them pays for it in resources, especially on a resource-constrained device like a smartphone.  
 

@@ -1,8 +1,14 @@
-<section class="cv-section" id="skills" aria-labelledby="skills-title">
-  <h2 class="cv-section-title" id="skills-title">Skills</h2>
-  <ul class="cv-skill-chips">
-    {% for group in site.data.skills %}{% for item in group.items %}
-    <li class="cv-skill-chip">{{ item }}</li>
-    {% endfor %}{% endfor %}
-  </ul>
+<!-- cv/skills.html — headline "core skills" pills (highlighted accent chips). -->
+<section class="section tight" id="skills" aria-labelledby="skills-title">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">grep -i core</div>
+      <h2 id="skills-title">Core skills</h2>
+    </div>
+  </div>
+  <div class="pills">
+    {% for skill in site.data.skills.core %}
+    <span class="pill key">{{ skill }}</span>
+    {% endfor %}
+  </div>
 </section>

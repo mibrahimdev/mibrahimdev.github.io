@@ -8,7 +8,7 @@
     {% seo %}
 
     <!-- Anti-FOUC: apply the persisted theme before the stylesheet loads.
-         No manual choice -> CSS prefers-color-scheme decides (light fallback). -->
+         No manual choice -> the CSS default (dark) applies. -->
     <script>
       (function () {
         try {
@@ -22,45 +22,58 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
 
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css?v={{ site.time | date: '%s' }}" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
   </head>
 
   <body>
-    <div class="wrapper-masthead">
-      <div class="container">
-        <header class="masthead">
-          <a href="{{ site.baseurl }}/" class="site-brand">mibrahimdev</a>
+    {% comment %} Which tab is active: home (/), blog (/blog/ + every post), videos. {% endcomment %}
+    {% assign active_tab = "" %}
+    {% if page.url == "/" %}{% assign active_tab = "home" %}{% endif %}
+    {% if page.url == "/blog/" or page.layout == "post" %}{% assign active_tab = "blog" %}{% endif %}
+    {% if page.url == "/videos/" %}{% assign active_tab = "videos" %}{% endif %}
 
-          {% comment %} Slim masthead on every page (wordmark + nav only). The site
-             wordmark `mibrahimdev` sits top-left; the avatar now lives in the home
-             hero card. The hero card remains the single place the name/title
-             appears, so the masthead never repeats them. {% endcomment %}
+    <nav class="nav">
+      <div class="nav-inner">
+        <a class="brand" href="{{ site.baseurl }}/">
+          <span class="dot"></span>
+          <span>mibrahimdev</span>
+        </a>
 
-          <nav>
-            <a href="{{ site.baseurl }}/">Home</a>
-            <a href="{{ site.baseurl }}/blog/">Blog</a>
-            <button id="theme-toggle" aria-label="Toggle theme">
-              <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0-5a1 1 0 011 1v2a1 1 0 11-2 0V3a1 1 0 011-1zm0 17a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zM4.22 4.22a1 1 0 011.42 0l1.4 1.4a1 1 0 11-1.41 1.42l-1.41-1.4a1 1 0 010-1.42zm12.73 12.73a1 1 0 011.42 0l1.4 1.4a1 1 0 01-1.41 1.42l-1.41-1.4a1 1 0 010-1.42zM2 12a1 1 0 011-1h2a1 1 0 110 2H3a1 1 0 01-1-1zm17 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zM4.22 19.78a1 1 0 010-1.42l1.4-1.4a1 1 0 011.42 1.41l-1.4 1.41a1 1 0 01-1.42 0zM16.95 7.05a1 1 0 010-1.42l1.4-1.4a1 1 0 011.42 1.41l-1.4 1.41a1 1 0 01-1.42 0z"/></svg>
-            </button>
-          </nav>
-        </header>
+        <div class="nav-tabs">
+          <a class="nav-tab{% if active_tab == 'home' %} active{% endif %}" href="{{ site.baseurl }}/">~/home</a>
+          <a class="nav-tab{% if active_tab == 'blog' %} active{% endif %}" href="{{ site.baseurl }}/blog/">~/blog</a>
+          <a class="nav-tab{% if active_tab == 'videos' %} active{% endif %}" href="{{ site.baseurl }}/videos/">~/videos</a>
+        </div>
+
+        <div class="nav-spacer"></div>
+
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0-5a1 1 0 011 1v2a1 1 0 11-2 0V3a1 1 0 011-1zm0 17a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zM4.22 4.22a1 1 0 011.42 0l1.4 1.4a1 1 0 11-1.41 1.42l-1.41-1.4a1 1 0 010-1.42zm12.73 12.73a1 1 0 011.42 0l1.4 1.4a1 1 0 01-1.41 1.42l-1.41-1.4a1 1 0 010-1.42zM2 12a1 1 0 011-1h2a1 1 0 110 2H3a1 1 0 01-1-1zm17 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zM4.22 19.78a1 1 0 010-1.42l1.4-1.4a1 1 0 011.42 1.41l-1.4 1.41a1 1 0 01-1.42 0zM16.95 7.05a1 1 0 010-1.42l1.4-1.4a1 1 0 011.42 1.41l-1.4 1.41a1 1 0 01-1.42 0z"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.53 15.93a1 1 0 00-1.05-.32 8.06 8.06 0 01-2.34.35 8.13 8.13 0 01-8.1-8.1c0-.79.12-1.58.35-2.34a1 1 0 00-1.26-1.26A10.08 10.08 0 002 13.81 10.14 10.14 0 0012.13 24a10.08 10.08 0 009.55-7.02 1 1 0 00-.15-1.05z"/></svg>
+        </button>
+
+        <a class="nav-cta" href="{{ site.cv_url }}" target="_blank" rel="noopener" aria-label="Download CV">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a1 1 0 011 1v10.59l3.3-3.3a1 1 0 111.4 1.42l-5 5a1 1 0 01-1.4 0l-5-5a1 1 0 111.4-1.42l3.3 3.3V3a1 1 0 011-1zM5 20a1 1 0 100 2h14a1 1 0 100-2H5z"/></svg>
+          <span>Download CV</span>
+        </a>
       </div>
-    </div>
+    </nav>
 
-    <div id="main" role="main" class="container {% if page.class %}{{ page.class }}{% endif %}">
+    <div id="main" role="main" class="wrap {% if page.class %}{{ page.class }}{% endif %}">
       {{ content }}
     </div>
 
-    <div class="wrapper-footer">
-      <div class="container">
-        <footer class="footer">
-          {% include svg-icons.html only="rss" %}
-        </footer>
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="brand">
+          <span class="dot"></span><span>mibrahimdev</span>
+        </div>
+        {% include svg-icons.html %}
       </div>
-    </div>
+    </footer>
 
     <script src="{{ '/javascripts/theme-toggle.js' | prepend: site.baseurl }}" defer></script>
     {% if page.class == "cv-home" %}<script src="{{ '/javascripts/cv.js' | prepend: site.baseurl }}" defer></script>{% endif %}

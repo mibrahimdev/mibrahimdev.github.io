@@ -1,0 +1,21 @@
+<!-- cv/toolbox.html — grouped skill pills; core skills keep their accent. -->
+<section class="section flush" id="toolbox" aria-labelledby="toolbox-title">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">cat ~/skills</div>
+      <h2 id="toolbox-title">Toolbox</h2>
+    </div>
+  </div>
+  <div class="skill-groups">
+    {% for group in site.data.skills.groups %}
+    <div class="skill-group">
+      <div class="skill-group-name">{{ group.group }}</div>
+      <div class="pills">
+        {% for item in group.items %}
+        <span class="pill{% if site.data.skills.core contains item %} key{% endif %}">{{ item }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Using Custom Fonts in Android (Support Library 26)
+tag: Android
 ---
 
 Until recently, there was no official way to add custom fonts to Android apps — just a handful of community-built solutions to work around the problem. The most notable ones are:

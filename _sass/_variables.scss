@@ -4,13 +4,19 @@
 // Colors live in _theme.scss as CSS custom properties (var(--token)).
 // This file holds only font stacks and layout mixins.
 //
+// "Refined Terminal" type system:
+//   Space Grotesk  — headings/display
+//   IBM Plex Sans  — body / long-form reading
+//   JetBrains Mono — labels, code, terminal motifs (fitting — JetBrains makes Kotlin)
+//
 
-$base-font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-$heading-font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+$display-font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+$body-font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 $code-font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-// Readable proportional font for long-form blog reading. JetBrains publishes
-// only JetBrains Mono, so we pair it with Inter for article body text.
-$body-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+// Legacy aliases (older partials reference these)
+$base-font-family: $body-font-family;
+$heading-font-family: $display-font-family;
 
 // Mobile breakpoints
 @mixin mobile {

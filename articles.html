@@ -1,23 +1,43 @@
 ---
 permalink: /blog/
 layout: default
-class: articles
+class: blog
+title: Blog
 ---
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
-      <h2 class="post-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+<div class="page-fade">
+  <div class="page-head">
+    <div class="eyebrow">ls ~/blog</div>
+    <h1>Blog</h1>
+    <p>Notes on Kotlin, Android architecture and the craft of engineering &mdash; {{ site.posts | size }} articles, newest first.</p>
+  </div>
 
-      <p class="date">{{ post.date | date: "%B %-d, %Y" }}</p>
-
-      {% unless post.series %}
-      <div class="entry">
-        {% if post.description %}<p>{{ post.description }}</p>{% else %}{{ post.excerpt }}{% endif %}
-      </div>
-      {% endunless %}
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read more</a>
-    </article>
-  {% endfor %}
+  <section class="section tight">
+    <div class="blog-grid stagger">
+      {% for post in site.posts %}
+      <a class="post-card" href="{{ site.baseurl }}{{ post.url }}">
+        <div class="post-meta">
+          {% if post.series %}
+          <span class="post-tag">{{ post.series }}</span>
+          {% elsif post.tag %}
+          <span class="post-tag">{{ post.tag }}</span>
+          {% endif %}
+          <span class="mono">{{ post.date | date: "%b %-d, %Y" }}</span>
+        </div>
+        <h3>{{ post.title }}</h3>
+        {% unless post.series %}
+        {% if post.description %}
+        <p>{{ post.description | truncate: 150 }}</p>
+        {% else %}
+        <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 150 }}</p>
+        {% endif %}
+        {% endunless %}
+        <div class="read text-link">
+          read more
+          <span class="arrow"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
 </div>

@@ -8,11 +8,8 @@
       stored = localStorage.getItem('theme');
     } catch (e) {}
     if (stored === 'dark' || stored === 'light') return stored;
-    // No manual choice: fall back to the OS preference (light otherwise).
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
-    }
-    return 'light';
+    // No manual choice: dark is the design default (matches the CSS :root).
+    return 'dark';
   }
 
   btn.addEventListener('click', function () {

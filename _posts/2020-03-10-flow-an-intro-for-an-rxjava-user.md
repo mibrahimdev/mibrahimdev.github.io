@@ -5,6 +5,7 @@ date: 2020-03-10
 canonical_url: https://medium.com/swlh/flow-an-intro-for-an-rxjava-user-1b5b6eb21790
 original_publication: The Startup
 description: "RxJava may be the most important library I learned to use, Rx in general is a different paradigm to write code, Kotlin as a new programming language give it a shot for implementing Flow…"
+tag: Kotlin
 ---
 
 ![](/images/posts/flow-an-intro-for-an-rxjava-user/01.png)

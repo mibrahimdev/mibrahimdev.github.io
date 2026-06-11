@@ -5,6 +5,7 @@ date: 2018-11-21
 canonical_url: https://medium.com/@mibrahimdev/the-evolution-of-android-architecture-patterns-6ab78b81570a
 original_publication: Medium
 description: "The main problem that Android community started to realize in the last few years is how much coupling in Presentation layer they have in Android apps."
+tag: Architecture
 ---
 
 ![](/images/posts/the-evolution-of-android-architecture-patterns/01.jpeg)

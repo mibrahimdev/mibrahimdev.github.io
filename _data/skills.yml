@@ -1,62 +1,55 @@
-# Skills — single source of truth for _includes/cv/skills.html
-# Grouped as {group, items[]}; rendered as chip groups.
+# Skills — single source of truth for the home page.
+#   core:   headline pills under "Core skills" (accent-highlighted)
+#   groups: the full "Toolbox", grouped per the CV's CORE SKILLS section.
+# Items that also appear in `core` render highlighted inside the toolbox.
 
-- group: Languages
-  items:
-    - Kotlin
-    - Java
+core:
+  - Kotlin
+  - Jetpack Compose
+  - Coroutines
+  - Flow
+  - Kotlin Multiplatform
+  - Clean Architecture
 
-- group: Concurrency
-  items:
-    - Kotlin Coroutines
-    - Flow
-    - RxJava
+groups:
+  - group: Languages & Async
+    items:
+      - Kotlin
+      - Java
+      - Coroutines
+      - Flow
+      - RxJava
+      - Kotlin Multiplatform
 
-- group: DI
-  items:
-    - Dagger 2
-    - Hilt
+  - group: Architecture
+    items:
+      - Clean Architecture
+      - MVVM
+      - MVI
+      - MVP
+      - Dagger 2
+      - Hilt
 
-- group: Architecture
-  items:
-    - Clean Architecture
-    - MVI
-    - MVVM
-    - MVP
+  - group: UI & Testing
+    items:
+      - Jetpack Compose
+      - Jetpack Libraries
+      - Material Design Systems
+      - Unit Testing
+      - Mockito
 
-- group: UI
-  items:
-    - Jetpack Compose
-    - Jetpack Libraries
-    - Material Design
-    - Design Systems
-    - Google Maps & Places APIs
+  - group: IoT & Platform
+    items:
+      - MQTT
+      - BLE
+      - Matter
+      - Google Maps & Places
+      - Firebase
 
-- group: Testing
-  items:
-    - Unit Testing
-    - Espresso
-    - Mockito
-
-- group: IoT
-  items:
-    - MQTT
-    - BLE
-    - Matter
-
-- group: Platform
-  items:
-    - Android
-    - Kotlin Multiplatform
-    - Firebase
-
-- group: CI/CD
-  items:
-    - Fastlane
-    - CircleCI
-    - Bamboo
-
-- group: Process
-  items:
-    - Agile
-    - Scrum
+  - group: Delivery
+    items:
+      - Fastlane
+      - CircleCI
+      - Bamboo
+      - Agile
+      - Scrum
