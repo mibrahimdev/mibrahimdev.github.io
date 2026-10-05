@@ -184,13 +184,7 @@ h1, h2, h3, h4 {
     border-radius: 50%;
     background: var(--accent);
     box-shadow: 0 0 0 3px var(--accent-soft);
-    animation: blink 2.4s steps(1) infinite;
   }
-}
-
-@keyframes blink {
-  0%, 70% { opacity: 1; }
-  71%, 100% { opacity: 0.35; }
 }
 
 .nav-tabs { display: flex; gap: 4px; margin-left: 8px; }
@@ -656,8 +650,6 @@ h1, h2, h3, h4 {
 
   .tl-content,
   .tl-item.is-visible .tl-content { animation: none; opacity: 1; }
-
-  .brand .dot { animation: none; }
 }
 
 /* ============================================================
