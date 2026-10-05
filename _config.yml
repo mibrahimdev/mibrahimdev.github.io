@@ -38,7 +38,7 @@ youtube:
 
 # Site URL, used in RSS and sitemap.xml.
 # Stays on the github.io host until the custom domain is live (see plan §8).
-url: http://mibrahimdev.github.io/
+url: https://mibrahimdev.github.io
 
 baseurl: ""
 
